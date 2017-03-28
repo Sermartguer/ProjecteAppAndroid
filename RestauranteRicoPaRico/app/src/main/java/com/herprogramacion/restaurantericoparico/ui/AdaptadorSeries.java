@@ -56,7 +56,7 @@ public class AdaptadorSeries extends RecyclerView.Adapter<AdaptadorSeries.ViewHo
                 .centerCrop()
                 .into(viewHolder.imagen);
         viewHolder.nombre.setText(item.getNombre());
-        viewHolder.precio.setText("$" + item.getRating());
+        viewHolder.precio.setText(item.getRating()+"/10");
 
     }
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

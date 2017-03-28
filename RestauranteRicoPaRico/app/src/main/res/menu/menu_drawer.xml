@@ -27,6 +27,10 @@
             android:id="@+id/item_contact"
             android:icon="@drawable/locate"
             android:title="@string/item_contact" />
+        <item
+            android:id="@+id/item_test"
+            android:icon="@drawable/locate"
+            android:title="@string/item_contact" />
     </group>
 
 </menu>

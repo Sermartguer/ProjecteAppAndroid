@@ -92,6 +92,9 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_contact:
                 startActivity(new Intent(this, ActividadContact.class));
                 break;
+            case R.id.item_test:
+                startActivity(new Intent(this, test.class));
+                break;
         }
         if (fragmentoGenerico != null) {
             fragmentManager

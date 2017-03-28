@@ -48,6 +48,8 @@ public class BookListActivity extends AppCompatActivity {
         lvBooks.setAdapter(bookAdapter);
         progress = (ProgressBar) findViewById(R.id.progress);
         setupBookSelectedListener();
+
+        fetchBook();
     }
 
     public void setupBookSelectedListener() {
@@ -100,7 +102,41 @@ public class BookListActivity extends AppCompatActivity {
             }
         });
     }
+    private void fetchBook() {
 
+        // Show progress bar before making network request
+        client = new BookClient();
+        client.getBooks2("", new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    // hide progress bar
+                    JSONArray docs = null;
+                    if(response != null) {
+                        // Get the docs json array
+                        docs = response.getJSONArray("results");
+                        // Parse json array into array of model objects
+                        final ArrayList<Book> books = Book.fromJson(docs);
+                        // Remove all books from the adapter
+                        bookAdapter.clear();
+                        // Load model objects into the adapter
+                        for (Book book : books) {
+                            bookAdapter.add(book); // add book through the adapter
+                        }
+                        bookAdapter.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                progress.setVisibility(ProgressBar.GONE);
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

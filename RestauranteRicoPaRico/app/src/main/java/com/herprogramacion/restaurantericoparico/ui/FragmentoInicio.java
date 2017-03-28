@@ -7,8 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.adapters.BookAdapter;
+import com.herprogramacion.restaurantericoparico.net.BookClient;
 
 /**
  * Fragmento para la sección de "Inicio"
@@ -17,6 +20,9 @@ public class FragmentoInicio extends Fragment {
     private RecyclerView reciclador;
     private LinearLayoutManager layoutManager;
     private AdaptadorInicio adaptador;
+    private BookAdapter bookAdapter;
+    private BookClient client;
+    private ProgressBar progress;
 
     public FragmentoInicio() {
     }
@@ -34,5 +40,4 @@ public class FragmentoInicio extends Fragment {
         reciclador.setAdapter(adaptador);
         return view;
     }
-
 }

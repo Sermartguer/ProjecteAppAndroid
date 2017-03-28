@@ -31,7 +31,14 @@ public class BookClient  {
             e.printStackTrace();
         }
     }
-
+    public void getBooks2(final String query, JsonHttpResponseHandler handler) {
+        try {
+            String url = getApiUrl("movie/upcoming?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&page=1");
+            client.get(url + URLEncoder.encode(query, "utf-8"), handler);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
     // Method for accessing books API to get publisher and no. of pages in a book.
     public void getExtraBookDetails(String openLibraryId, JsonHttpResponseHandler handler) {
         String url = getApiUrl("movie/");

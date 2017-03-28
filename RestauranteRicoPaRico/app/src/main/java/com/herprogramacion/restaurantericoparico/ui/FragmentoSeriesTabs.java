@@ -24,8 +24,8 @@ public class FragmentoSeriesTabs extends Fragment {
     private GridLayoutManager layoutManager;
     private AdaptadorSeries adaptador;
 
-    public static FragmentoCategoria nuevaInstancia(int indiceSeccion) {
-        FragmentoCategoria fragment = new FragmentoCategoria();
+    public static FragmentoSeriesTabs nuevaInstancia(int indiceSeccion) {
+        FragmentoSeriesTabs fragment = new FragmentoSeriesTabs();
         Bundle args = new Bundle();
         args.putInt(INDICE_SECCION, indiceSeccion);
         fragment.setArguments(args);
@@ -45,13 +45,13 @@ public class FragmentoSeriesTabs extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                adaptador = new AdaptadorSeries(getContext(), Comidas.getComidasPopulares());
+                adaptador = new AdaptadorSeries(getContext(), Comidas.getuno());
                 break;
             case 1:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getBEBIDAS());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
                 break;
             case 2:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getPOSTRES());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
                 break;
         }
 

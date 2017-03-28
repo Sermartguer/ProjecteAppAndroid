@@ -25,12 +25,15 @@ public class Comidas {
     public static List<Comida> getPLATILLOS() {
         return PLATILLOS;
     }
-
+    public static List<Comida> getuno() {
+        return uno;
+    }
     public static final List<Comida> COMIDAS_POPULARES = new ArrayList<Comida>();
     public static final List<Comida> BEBIDAS = new ArrayList<>();
     public static final List<Comida> POSTRES = new ArrayList<>();
     public static final List<Comida> PLATILLOS = new ArrayList<>();
-
+    public static final List<Comida> uno = new ArrayList<>();
+    public static final List<Comida> MAS_VALORADAS = new ArrayList<>();
     static {
         COMIDAS_POPULARES.add(new Comida(5.4f, "Beauty and the Beast", R.drawable.beea,"Explore the mysterious and dangerous home of the king of the apes as a team of explorers ventures deep inside the treacherous, primordial island.",3f,0,305,"03/17/2017"));
         COMIDAS_POPULARES.add(new Comida(5.5f, "A Cure for Wellness", R.drawable.cure,"Descripcion",3f,1,778,"03/24/2017"));
@@ -43,6 +46,9 @@ public class Comidas {
         PLATILLOS.add(new Comida(12f, "Sushi Extremo", R.drawable.sushi,"Descripcion",3f,7,589,"03/17/2017"));
         PLATILLOS.add(new Comida(9, "Sandwich Deli", R.drawable.sandwich,"Descripcion",3f,8,589,"03/17/2017"));
         PLATILLOS.add(new Comida(34f, "Lomo De Cerdo Austral", R.drawable.lomo_cerdo,"Descripcion",3f,9,589,"03/17/2017"));
+
+
+        uno.add(new Comida(34f, "Lomo De Cerdo Austral", R.drawable.lomo_cerdo,"Descripcion",3f,9,589,"03/17/2017"));
 
             BEBIDAS.add(new Comida(3, "Taza de Café", R.drawable.cafe,"Descripcion",3f,10,589,"03/17/2017"));
             BEBIDAS.add(new Comida(12, "Coctel Tronchatoro", R.drawable.coctel,"Descripcion",3f,11,589,"03/17/2017"));

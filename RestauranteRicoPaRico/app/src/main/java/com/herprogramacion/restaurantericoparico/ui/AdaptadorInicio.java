@@ -19,10 +19,9 @@ import java.util.List;
 /**
  * Adaptador para mostrar las comidas más pedidas en la sección "Inicio"
  */
-public class AdaptadorInicio
-        extends RecyclerView.Adapter<AdaptadorInicio.ViewHolder> implements ItemClickListener {
+public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHolder> implements ItemClickListener {
     private final Context context ;
-    private final List<Comida> items = Comidas.COMIDAS_POPULARES;
+    private final List<Comida> items = Comidas.uno;
 
     public AdaptadorInicio(Context context) {
      this.context = context;
