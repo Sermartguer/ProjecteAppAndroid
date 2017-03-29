@@ -58,7 +58,13 @@ public class AdaptadorSeries extends RecyclerView.Adapter<AdaptadorSeries.ViewHo
         viewHolder.nombre.setText(item.getNombre());
         viewHolder.precio.setText(item.getRating()+"/10");
 
+
     }
+
+    public Context getContext() {
+        return context;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // Campos respectivos de un item
         public TextView nombre;

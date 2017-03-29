@@ -1,22 +1,21 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.ui.init;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.modelo.Comida;
+import com.herprogramacion.restaurantericoparico.modelo.Comidas;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -31,26 +30,26 @@ public class test extends AppCompatActivity {
     private ListView lv;
 
     // URL to get contacts JSON
-    private static String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&page=1";
 
-    ArrayList<HashMap<String, String>> contactList;
+    private static String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&page=1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        contactList = new ArrayList<>();
 
         lv = (ListView) findViewById(R.id.list);
 
         new GetContacts().execute();
+        finish();
     }
 
     /**
      * Async task class to get json by making HTTP call
      */
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+    public class GetContacts extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -59,7 +58,7 @@ public class test extends AppCompatActivity {
             pDialog = new ProgressDialog(test.this);
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
-            pDialog.show();
+            pDialog.hide();
 
         }
 
@@ -87,7 +86,8 @@ public class test extends AppCompatActivity {
                         String name = c.getString("original_title");
                         String email = c.getString("release_date");
                         String lang = c.getString("original_language");
-
+                        String vote = c.getString("vote_average");
+                        String img =c.getString("poster_path");
                         // Phone node is JSON Object
 
 
@@ -100,9 +100,9 @@ public class test extends AppCompatActivity {
                         contact.put("name", name);
                         contact.put("email", email);
                         contact.put("mobile", lang);
-
+                        contact.put("vote_average", vote);
                         // adding contact to contact list
-                        contactList.add(contact);
+                        Comidas.Movies.add(new Comida(vote, name, R.drawable.ic_nocover,email,3f,1,778,"03/24/2017",img));
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -134,22 +134,20 @@ public class test extends AppCompatActivity {
             return null;
         }
 
-        @Override
+       @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
             if (pDialog.isShowing())
-                pDialog.dismiss();
-            /**
-             * Updating parsed JSON data into ListView
-             * */
+                pDialog.hide();
+/*
             ListAdapter adapter = new SimpleAdapter(
                     test.this, contactList,
                     R.layout.test_item_list, new String[]{"name", "email",
                     "mobile"}, new int[]{R.id.name,
                     R.id.email, R.id.mobile});
 
-            lv.setAdapter(adapter);
+            lv.setAdapter(adapter);*/
         }
 
     }

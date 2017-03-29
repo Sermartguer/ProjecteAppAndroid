@@ -49,7 +49,7 @@ public class BookListActivity extends AppCompatActivity {
         progress = (ProgressBar) findViewById(R.id.progress);
         setupBookSelectedListener();
 
-        fetchBook();
+        //fetchBook();
     }
 
     public void setupBookSelectedListener() {

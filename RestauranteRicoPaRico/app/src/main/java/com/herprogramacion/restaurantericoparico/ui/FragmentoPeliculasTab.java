@@ -45,13 +45,13 @@ public class FragmentoPeliculasTab extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                adaptador = new AdaptadorSeries(getContext(), Comidas.getuno());
+                adaptador = new AdaptadorSeries(getContext(), Comidas.getMovies());
                 break;
             case 1:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getBEBIDAS());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getMorePopular());
                 break;
             case 2:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getNowPlaying());
                 break;
         }
 

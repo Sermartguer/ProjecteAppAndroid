@@ -65,7 +65,7 @@ public class DetailActivity  extends AppCompatActivity {
         description.setText(detailCourse.getDescripcion());
         author.setText("Creado Por:" + detailCourse.getNombre());
         price.setText(detailCourse.getRating()+"/10");
-        rating.setRating(detailCourse.getRating());
+        //rating.setRating(detailCourse.getRating());
         Glide.with(this).load(detailCourse.getIdDrawable()).into(image);
     }
 

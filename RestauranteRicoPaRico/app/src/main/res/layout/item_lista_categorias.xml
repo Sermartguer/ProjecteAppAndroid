@@ -18,20 +18,21 @@
         android:padding="@dimen/espacio_norma_1">
 
         <TextView
+            android:id="@+id/nombre_comida"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:textStyle="normal|bold" />
+
+        <TextView
             android:id="@+id/precio_comida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Precio"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
-            android:textStyle="normal|bold" />
 
-        <TextView
-            android:id="@+id/nombre_comida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
-            android:textSize="12sp" />
+            />
 
     </LinearLayout>
 </LinearLayout>

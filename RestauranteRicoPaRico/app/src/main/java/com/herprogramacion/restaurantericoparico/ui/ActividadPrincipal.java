@@ -15,6 +15,12 @@ import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
 import com.herprogramacion.restaurantericoparico.ui.activities.BookListActivity;
+import com.herprogramacion.restaurantericoparico.ui.init.MorePopMovie;
+import com.herprogramacion.restaurantericoparico.ui.init.MorePopSer;
+import com.herprogramacion.restaurantericoparico.ui.init.NowPlaying;
+import com.herprogramacion.restaurantericoparico.ui.init.OnAir;
+import com.herprogramacion.restaurantericoparico.ui.init.TopRatedS;
+import com.herprogramacion.restaurantericoparico.ui.init.test;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -29,7 +35,13 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
+        startActivity(new Intent(this, test.class));
+        startActivity(new Intent(this, MorePopMovie.class));
+        startActivity(new Intent(this, NowPlaying.class));
+        startActivity(new Intent(this, TopRatedS.class));
+        startActivity(new Intent(this, MorePopSer.class));
+        startActivity(new Intent(this, OnAir.class));
+        //startActivity(new Intent(this, MorePopMovie.class));
         if (navigationView != null) {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
@@ -70,6 +82,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         switch (itemDrawer.getItemId()) {
             /*Inicio*/
             case R.id.item_inicio:
+                //startActivity(new Intent(this, test.class));
                 fragmentoGenerico = new FragmentoInicio();
                 break;
             /*Peliculas*/

@@ -5,15 +5,19 @@ package com.herprogramacion.restaurantericoparico.modelo;
  * Modelo de datos estático para alimentar la aplicación
  */
 public class Comida {
-    private float Rating;
+    private String openLibraryId;
+    private String Rating;
     private String nombre;
     private int idDrawable;
     private String descripcion;
     private int position;
     private int voteCount;
     private String date;
+    private String img;
 
-    public Comida(float Rating, String nombre, int idDrawable , String descripcion , float rating , int position,int voteCount, String date) {
+    public  String getImg(){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+gIMG();}
+
+    public Comida(String Rating, String nombre, int idDrawable , String descripcion , float rating , int position, int voteCount, String date, String img) {
         this.Rating = Rating;
         this.nombre = nombre;
         this.idDrawable = idDrawable;
@@ -21,11 +25,17 @@ public class Comida {
         this.position = position;
         this.voteCount=voteCount;
         this.date=date;
+        this.img=img;
     }
-    public float getRating() {
+    public String getRating() {
         return Rating;
     }
-
+    private String gIMG(){
+        return img;
+    }
+    public String getOpenLibraryId() {
+        return openLibraryId;
+    }
     public String getNombre() {
         return nombre;
     }
