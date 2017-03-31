@@ -25,6 +25,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
         public ImageView ivCover;
         public TextView tvTitle;
         public TextView tvAuthor;
+        public TextView stars;
+        public TextView popu;
+        public TextView Rdate;
     }
 
     public BookAdapter(Context context, ArrayList<Book> aBooks) {
@@ -46,6 +49,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
             viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.ivBookCover);
             viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.tvTitle);
             viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
+            viewHolder.stars= (TextView)convertView.findViewById(R.id.tvStars);
+            viewHolder.popu= (TextView)convertView.findViewById(R.id.tvVotecount);
+            viewHolder.Rdate= (TextView)convertView.findViewById(R.id.tvRdate);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -53,6 +59,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
         // Populate the data into the template view using the data object
         viewHolder.tvTitle.setText(book.getTitle());
         viewHolder.tvAuthor.setText(book.getAuthor());
+        viewHolder.stars.setText(book.getStars()+"/10");
+        viewHolder.popu.setText(book.getPopu());
+        viewHolder.Rdate.setText(book.getRdate());
         Picasso.with(getContext()).load(Uri.parse(book.getImg())).error(R.drawable.ic_nocover).into(viewHolder.ivCover);
         // Return the completed view to render on screen
         return convertView;

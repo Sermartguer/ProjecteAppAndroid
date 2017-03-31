@@ -102,7 +102,7 @@ public class OnAir extends AppCompatActivity {
                         contact.put("mobile", lang);
                         contact.put("vote_average", vote);
                         // adding contact to contact list
-                        Comidas.OnAir.add(new Comida(vote, name, R.drawable.ic_nocover,email,3f,1,778,"03/24/2017",img));
+                        Comidas.OnAir.add(new Comida(id,vote, name, img,email,3f,1,778,"03/24/2017",img));
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());

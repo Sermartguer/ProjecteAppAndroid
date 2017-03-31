@@ -8,7 +8,7 @@ public class Comida {
     private String openLibraryId;
     private String Rating;
     private String nombre;
-    private int idDrawable;
+    private String idDrawable;
     private String descripcion;
     private int position;
     private int voteCount;
@@ -17,7 +17,7 @@ public class Comida {
 
     public  String getImg(){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+gIMG();}
 
-    public Comida(String Rating, String nombre, int idDrawable , String descripcion , float rating , int position, int voteCount, String date, String img) {
+    public Comida(String openLibraryId,String Rating, String nombre, String idDrawable , String descripcion , float rating , int position, int voteCount, String date, String img) {
         this.Rating = Rating;
         this.nombre = nombre;
         this.idDrawable = idDrawable;
@@ -26,6 +26,7 @@ public class Comida {
         this.voteCount=voteCount;
         this.date=date;
         this.img=img;
+        this.openLibraryId=openLibraryId;
     }
     public String getRating() {
         return Rating;
@@ -40,7 +41,7 @@ public class Comida {
         return nombre;
     }
 
-    public int getIdDrawable() {
+    public String getIdDrawable() {
         return idDrawable;
     }
 
@@ -51,4 +52,7 @@ public class Comida {
     public String getDate(){return date;}
 
     public int getPosition(){return position;}
+    public String getopenLibraryId(){
+        return openLibraryId;
+    }
 }

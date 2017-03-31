@@ -29,14 +29,15 @@ public class DetailActivity  extends AppCompatActivity {
     private static final String EXTRA_POSITION = "com.herprogramacion.cursospoint.extra.POSITION";
     private static int position;
     private static List<Comida> itemss;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Toast alert = Toast.makeText(this,"Valor Position"+position,Toast.LENGTH_LONG);
         alert.show();
-
-
+        for (int i=0;i<3; i++) {
+            Toast alerta = Toast.makeText(this, "Valor Position" + itemss, Toast.LENGTH_LONG);
+            alerta.show();
+        }
         setToolbar(); // Reemplazar la action bar
 
         // Se obtiene la posición del item seleccionado
@@ -101,6 +102,7 @@ public class DetailActivity  extends AppCompatActivity {
     }
 
     public static void launch(Activity context, int position, View sharedView ,List<Comida> items) {
+
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(EXTRA_POSITION, position);
         itemss=items;

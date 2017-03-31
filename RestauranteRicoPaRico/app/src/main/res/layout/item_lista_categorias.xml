@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:textSize="10sp"
             android:textStyle="normal|bold" />
 
         <TextView
@@ -32,7 +33,15 @@
             android:text="Precio"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
 
-            />
+            android:textSize="8sp" />
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+
+            android:textSize="8sp" />
 
     </LinearLayout>
 </LinearLayout>
