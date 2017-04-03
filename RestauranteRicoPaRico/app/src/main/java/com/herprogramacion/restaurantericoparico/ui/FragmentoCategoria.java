@@ -44,13 +44,13 @@ public class FragmentoCategoria extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno(),1);
                 break;
             case 1:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno(),1);
                 break;
             case 2:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getuno(),1);
                 break;
         }
 

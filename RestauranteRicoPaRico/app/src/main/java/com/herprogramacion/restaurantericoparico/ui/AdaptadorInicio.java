@@ -39,7 +39,8 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
     @Override
     public void onItemClick(View view, int position) {
         View sharedImage = view.findViewById(R.id.image);
-        DetailActivity.launch((Activity) context, position, sharedImage ,items);
+
+        DetailActivity.launch((Activity) context, position, sharedImage ,items,0);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

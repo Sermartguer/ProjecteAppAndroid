@@ -45,13 +45,13 @@ public class FragmentoSeriesTabs extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                adaptador = new AdaptadorSeries(getContext(), Comidas.getTopRatedS());
+                adaptador = new AdaptadorSeries(getContext(), Comidas.getTopRatedS(),2);
                 break;
             case 1:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getMorePopSer());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getMorePopSer(),2);
                 break;
             case 2:
-                adaptador = new AdaptadorSeries(getContext(),Comidas.getOnAir());
+                adaptador = new AdaptadorSeries(getContext(),Comidas.getOnAir(),2);
                 break;
         }
 

@@ -22,8 +22,9 @@ import java.util.List;
 public class AdaptadorSeries extends RecyclerView.Adapter<AdaptadorSeries.ViewHolder> implements ItemClickListener {
     private final Context context;
     private final List<Comida> items;
-
-    public AdaptadorSeries(Context context, List<Comida> items) {
+    private final int tipo;
+    public AdaptadorSeries(Context context, List<Comida> items, int tipo) {
+        this.tipo=tipo;
         this.items = items;
         this.context = context;
     }
@@ -41,7 +42,9 @@ public class AdaptadorSeries extends RecyclerView.Adapter<AdaptadorSeries.ViewHo
     public void onItemClick(View view, int position) {
         // Imagen a compartir entre transiciones
         View sharedImage = view.findViewById(R.id.image);
-        DetailActivity.launch((Activity) context, position, sharedImage ,items);
+
+            DetailActivity.launch((Activity) context, position, sharedImage, items,tipo);
+
     }
 
 

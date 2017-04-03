@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,19 +79,20 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
                 try {
-                   /* if (response.has("publishers")) {
+                    if (response.has("production_companies")) {
 
                         // display comma separated list of publishers
-                        final JSONArray publisher = response.getJSONArray("release_date");
+                        final JSONArray publisher = response.getJSONArray("production_companies");
                         final int numPublishers = publisher.length();
                         final String[] publishers = new String[numPublishers];
                         for (int i = 0; i < numPublishers; ++i) {
                             publishers[i] = publisher.getString(i);
                         }
-                        RDate.setText(TextUtils.join(", ", publishers));
-                    }*/
 
-                        Budget.setText(Integer.toString(response.getInt("budget"))+" $");
+                        Production.setText(TextUtils.join(", ", publishers));
+                    }
+
+                    Budget.setText(Integer.toString(response.getInt("budget"))+" $");
                     Revenue.setText(Integer.toString(response.getInt("revenue"))+" $");
                     desc.setText(response.getString("overview"));
                 } catch (JSONException e) {

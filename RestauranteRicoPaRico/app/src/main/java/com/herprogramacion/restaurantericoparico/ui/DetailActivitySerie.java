@@ -28,12 +28,14 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+/**
+ * Created by Sergio on 01/04/2017.
+ */
 
-public class DetailActivity  extends AppCompatActivity {
+public class DetailActivitySerie extends AppCompatActivity {
     private static final String EXTRA_POSITION = "com.herprogramacion.cursospoint.extra.POSITION";
     public static int position1;
     private static List<Comida> itemss;
-    private static int tipo1;
     private TextView name;
     private TextView date2;
     private TextView budget2;
@@ -44,7 +46,7 @@ public class DetailActivity  extends AppCompatActivity {
     private ImageView ivBookCover;
     private String idfilm;
     private Comida comida;
-
+    private int tipo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_test);
@@ -60,7 +62,7 @@ public class DetailActivity  extends AppCompatActivity {
 
         Toast alert = Toast.makeText(this,"Valor Position"+position1,Toast.LENGTH_LONG);
         alert.show();
-         alert = Toast.makeText(this,"Valor Position"+itemss.get(position1).toString(),Toast.LENGTH_LONG);
+        alert = Toast.makeText(this,"Valor Position"+itemss.get(position1).toString(),Toast.LENGTH_LONG);
         alert.show();
         setToolbar();
         int position = getIntent().getIntExtra(EXTRA_POSITION, -1);
@@ -85,35 +87,23 @@ public class DetailActivity  extends AppCompatActivity {
 
         //Comida detailCourse = Comidas.getCourseByPosition(items,position);
 
-        comida.getExtraBookDetails(itemss.get(position1).toString(),tipo1, new JsonHttpResponseHandler() {
+        comida.getExtraBookDetails(itemss.get(position1).toString(),0, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                if(tipo1==1) {
-                    try {
-                        name.setText(response.getString("original_title"));
-                        date2.setText(response.getString("release_date"));
-                        budget2.setText(Integer.toString(response.getInt("budget")) + " $");
-                        revenue2.setText(Integer.toString(response.getInt("revenue")) + " $");
-                        detail_descriptio2.setText(response.getString("overview"));
-                        production2.setText(response.getString(""));
-                        detail_star2.setText(response.getString("vote_average") + "/10");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }else if (tipo1==2){
-                    try {
-                        name.setText(response.getString("original_name"));
-                        date2.setText(response.getString("last_air_date"));
-                        budget2.setText(Integer.toString(response.getInt("original_language")) + " $");
-                        revenue2.setText(Integer.toString(response.getInt("name")) + " $");
-                        detail_descriptio2.setText(response.getString("overview"));
-                        production2.setText(response.getString(""));
-                        detail_star2.setText(response.getString("vote_average") + "/10");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+
+                try {
+                    name.setText(response.getString("original_name"));
+                    date2.setText(response.getString("first_air_date"));
+                    budget2.setText(Integer.toString(response.getInt("budget"))+" $");
+                    revenue2.setText(Integer.toString(response.getInt("revenue"))+" $");
+                    detail_descriptio2.setText(response.getString("overview"));
+                    production2.setText(response.getString(""));
+                    detail_star2.setText(response.getString("vote_average")+"/10");
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
 
             }
         });
@@ -161,7 +151,7 @@ public class DetailActivity  extends AppCompatActivity {
 
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(EXTRA_POSITION, position);
-        tipo1=tipo;
+        tipo=tipo;
         position1=position;
         itemss=items;
         context.startActivity(intent);
