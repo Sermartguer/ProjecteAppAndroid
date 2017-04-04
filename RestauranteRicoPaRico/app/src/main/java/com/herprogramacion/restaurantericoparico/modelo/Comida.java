@@ -20,6 +20,7 @@ public class Comida {
     private static final String API_BASE_URL = "https://api.themoviedb.org/3/";
     private AsyncHttpClient client;
     public  String getImg(){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+gIMG();}
+    public  String getTest(String jpg){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+jpg;}
 public Comida(){
     this.client = new AsyncHttpClient();
 }
@@ -73,6 +74,11 @@ public Comida(){
             String url = getApiUrl("tv/");
             client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
         }
+
+    }
+    public void  getExtraPersons(String id, JsonHttpResponseHandler handler){
+        String url=getApiUrl("movie/");
+        client.get(url+id+"/credits?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5", handler);
 
     }
     @Override

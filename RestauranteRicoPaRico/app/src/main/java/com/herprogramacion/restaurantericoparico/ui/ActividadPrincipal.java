@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.modelo.Comidas;
 import com.herprogramacion.restaurantericoparico.ui.activities.BookListActivity;
 import com.herprogramacion.restaurantericoparico.ui.init.MorePopMovie;
 import com.herprogramacion.restaurantericoparico.ui.init.MorePopSer;
@@ -35,6 +36,12 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Comidas.MorePopSer.clear();
+        Comidas.Movies.clear();
+        Comidas.MorePopular.clear();
+        Comidas.NowPlaying.clear();
+        Comidas.OnAir.clear();
+        Comidas.TopRatedS.clear();
         startActivity(new Intent(this, test.class));
         startActivity(new Intent(this, MorePopMovie.class));
         startActivity(new Intent(this, NowPlaying.class));
@@ -104,9 +111,6 @@ public class ActividadPrincipal extends AppCompatActivity {
             /*Contact*/
             case R.id.item_contact:
                 startActivity(new Intent(this, ActividadContact.class));
-                break;
-            case R.id.item_test:
-                startActivity(new Intent(this, test.class));
                 break;
         }
         if (fragmentoGenerico != null) {

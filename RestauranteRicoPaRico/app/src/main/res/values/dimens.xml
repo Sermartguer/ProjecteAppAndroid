@@ -2,7 +2,7 @@
 
     <dimen name="espacio_norma_1">16dp</dimen>
     <dimen name="espacio_norma_2">8dp</dimen>
-
+    <dimen name="espacio_norma_3">24dp</dimen>
     <dimen name="padding_izquierdo_cabecera">16dp</dimen>
 
     <dimen name="altura_miniatura_comida">250dp</dimen>

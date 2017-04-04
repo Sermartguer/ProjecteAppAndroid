@@ -43,6 +43,7 @@ public class BookDetailActivity extends AppCompatActivity {
     private TextView Production;
     private TextView Stars;
     private TextView desc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +78,13 @@ public class BookDetailActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    Budget.setText(Integer.toString(response.getInt("budget"))+" $");
+                    Revenue.setText(Integer.toString(response.getInt("revenue"))+" $");
+                    desc.setText(response.getString("overview"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 try {
                     if (response.has("production_companies")) {
@@ -86,15 +94,16 @@ public class BookDetailActivity extends AppCompatActivity {
                         final int numPublishers = publisher.length();
                         final String[] publishers = new String[numPublishers];
                         for (int i = 0; i < numPublishers; ++i) {
-                            publishers[i] = publisher.getString(i);
+
+                            JSONObject pro= publisher.getJSONObject(i);
+                            String name=pro.getString("name");
+                            publishers[i] = name;
                         }
 
                         Production.setText(TextUtils.join(", ", publishers));
                     }
 
-                    Budget.setText(Integer.toString(response.getInt("budget"))+" $");
-                    Revenue.setText(Integer.toString(response.getInt("revenue"))+" $");
-                    desc.setText(response.getString("overview"));
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -102,6 +102,7 @@ public class test extends AppCompatActivity {
                         contact.put("mobile", lang);
                         contact.put("vote_average", vote);
                         // adding contact to contact list
+
                         Comidas.Movies.add(new Comida(id,vote, name, img,email,3f,1,778,"03/24/2017",img));
                     }
                 } catch (final JSONException e) {

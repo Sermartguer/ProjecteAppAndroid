@@ -102,6 +102,7 @@ public class MorePopSer extends AppCompatActivity {
                         contact.put("mobile", lang);
                         contact.put("vote_average", vote);
                         // adding contact to contact list
+
                         Comidas.MorePopSer.add(new Comida(id,vote, name, img,email,3f,1,778,"03/24/2017",img));
                     }
                 } catch (final JSONException e) {

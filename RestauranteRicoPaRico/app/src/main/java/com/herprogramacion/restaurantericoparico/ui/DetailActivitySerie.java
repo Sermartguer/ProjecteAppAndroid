@@ -55,7 +55,7 @@ public class DetailActivitySerie extends AppCompatActivity {
         date2 = (TextView) findViewById(R.id.date2);
         budget2 = (TextView) findViewById(R.id.budget2);
         revenue2 = (TextView) findViewById(R.id.revenue2);
-        production2 = (TextView) findViewById(R.id.production2);
+        production2 = (TextView) findViewById(R.id.production3);
         detail_star2 = (TextView) findViewById(R.id.dt);
         detail_descriptio2=(TextView) findViewById(R.id.detail_descriptio2);
         idfilm=itemss.get(position1).toString();
@@ -99,7 +99,7 @@ public class DetailActivitySerie extends AppCompatActivity {
                     revenue2.setText(Integer.toString(response.getInt("revenue"))+" $");
                     detail_descriptio2.setText(response.getString("overview"));
                     production2.setText(response.getString(""));
-                    detail_star2.setText(response.getString("vote_average")+"/10");
+                    detail_star2.setText(response.getString("vote_average"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
