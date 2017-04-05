@@ -90,12 +90,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="0.24"
+                            android:layout_weight="0.04"
                             android:paddingLeft="4dp"
                             android:text="TextView"
                             android:textColor="#ffffff"
                             android:textSize="21sp"
                             android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/uri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.03"
+                            android:src="@drawable/world_wide_web"
+                            android:background="#585656"/>
 
                     </LinearLayout>
 
@@ -140,10 +148,11 @@
                     android:layout_height="wrap_content"
                     android:text="Reparto"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"/>
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="264dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="5dp"
@@ -217,10 +226,20 @@
                             android:textColor="#ffffff" />
                     </LinearLayout>
 
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VER MÁS"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="#585656"
+                        android:textColor="#ffffff"/>
+
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="265dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
@@ -256,6 +275,37 @@
 
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="3dp">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Géneros"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/g1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="#ffffff"/>
             </LinearLayout>
 
         </LinearLayout>

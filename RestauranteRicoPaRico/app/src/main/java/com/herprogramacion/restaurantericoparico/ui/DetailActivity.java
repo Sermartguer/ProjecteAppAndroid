@@ -10,9 +10,12 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -56,8 +59,18 @@ public class DetailActivity  extends AppCompatActivity {
     private String idfilm;
     private Comida comida;
     private Comida comidaw;
-
+    private Comida videos;
+    private Button bton;
+    private ImageButton trailer;
     private LinearLayout bgElement;
+    private final String[] video=new String[1];
+    private String[] caracter;
+    private String[] nombre;
+    private String[] profile;
+    private String urlvideo;
+    private TextView gen;
+    private ImageView uri;
+    private String urlhomepage;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_test);
@@ -80,14 +93,40 @@ public class DetailActivity  extends AppCompatActivity {
         p3=(TextView)findViewById(R.id.p3);
         r3=(TextView)findViewById(R.id.r3);
         i3=(ImageView)findViewById(R.id.i3);
-         Toast alert = Toast.makeText(this,"Valor Position"+position1,Toast.LENGTH_LONG);
-        alert.show();
-         alert = Toast.makeText(this,"Valor Position"+itemss.get(position1).toString(),Toast.LENGTH_LONG);
-        alert.show();
+        bton=(Button)findViewById(R.id.button2);
+        gen=(TextView)findViewById(R.id.g1);
+        uri=(ImageView)findViewById(R.id.uri);
+        uri.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(urlhomepage.equals("")) {
+                    startActivity(new Intent(DetailActivity.this, Pop.class));
+                }else{
+                    Uri uri = Uri.parse(urlhomepage);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            }
+        });
+        bton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                //Intent intent = new Intent(DetailActivity.this, VideoTube.class);
+               // intent.putExtra("video",video);
+                //startActivity(intent);
+
+            }
+        });
+         ///Toast alert = Toast.makeText(this,"Valor Position"+position1,Toast.LENGTH_LONG);
+       // alert.show();
+        // alert = Toast.makeText(this,"Valor Position"+itemss.get(position1).toString(),Toast.LENGTH_LONG);
+        //alert.show();
         setToolbar();
         int position = getIntent().getIntExtra(EXTRA_POSITION, -1);
         setupViews(itemss,position,idfilm);
     }
+
+
     private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -104,12 +143,36 @@ public class DetailActivity  extends AppCompatActivity {
         this.position1 = position;
         comida=new Comida();
         comidaw=new Comida();
+        videos=new Comida();
+
         Picasso.with(this).load(Uri.parse(items.get(position1).getImg())).error(R.drawable.ic_nocover).into(ivBookCover);
 
         //Comida detailCourse = Comidas.getCourseByPosition(items,position);
         Toast.makeText(this, ""+itemss.get(position1).toString(), Toast.LENGTH_SHORT).show();
+        videos.getExtraVideos(itemss.get(position1).toString(),new JsonHttpResponseHandler() {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-        comidaw.getExtraPersons(itemss.get(position1).toString(),new JsonHttpResponseHandler(){
+                try {
+
+                    // display comma separated list of publishers
+                    final JSONArray publisher = response.getJSONArray("results");
+                    final int numPublishers = publisher.length();
+                    final String[] publishers = new String[numPublishers];
+                    final String[] characters=new String[numPublishers];
+                    final String[] imgs=new String[numPublishers];
+                    for (int i = 0; i < 1; ++i) {
+
+                        JSONObject pro= publisher.getJSONObject(i);
+                        String name=pro.getString("key");
+                        video[i] = name;
+                    }
+                    urlvideo=video[0];
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }}
+
+        });
+        comidaw.getExtraPersons(itemss.get(position1).toString(),tipo1,new JsonHttpResponseHandler(){
 
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
@@ -121,7 +184,10 @@ public class DetailActivity  extends AppCompatActivity {
                         final String[] publishers = new String[numPublishers];
                         final String[] characters=new String[numPublishers];
                         final String[] imgs=new String[numPublishers];
-                        for (int i = 0; i < 3; ++i) {
+                        caracter=new String[numPublishers];
+                        nombre=new String[numPublishers];
+                        profile=new String[numPublishers];
+                        for (int i = 0; i < numPublishers; ++i) {
 
                             JSONObject pro= publisher.getJSONObject(i);
                             String name=pro.getString("name");
@@ -130,6 +196,9 @@ public class DetailActivity  extends AppCompatActivity {
                             publishers[i] = name;
                             characters[i]=character;
                             imgs[i]=img;
+                            caracter[i]=character;
+                            nombre[i]=name;
+                            profile[i]=img;
 
                         }
                         Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[0]))).error(R.drawable.ic_nocover).into(i1);
@@ -165,6 +234,7 @@ public class DetailActivity  extends AppCompatActivity {
                         //revenue2.setText(Integer.toString(response.getInt("revenue")) + " $");
                         detail_descriptio2.setText(response.getString("overview"));
                         detail_star2.setText(response.getString("vote_average"));
+                        urlhomepage=(response.getString("homepage"));
                         if (response.has("production_companies")) {
 
                             // display comma separated list of publishers
@@ -180,6 +250,21 @@ public class DetailActivity  extends AppCompatActivity {
 
                             //production2.setText(TextUtils.join(", ", publishers));
                         }
+                        if (response.has("genres")){
+                            final JSONArray gene = response.getJSONArray("genres");
+                            final int ngen = gene.length();
+                            final String[] publishers = new String[ngen];
+                            for (int i = 0; i < ngen; ++i) {
+
+                                JSONObject pro= gene.getJSONObject(i);
+                                String name=pro.getString("name");
+                                publishers[i] = name;
+                            }
+                            gen.setText(TextUtils.join(", ", publishers));
+
+                        }else{
+                            gen.setText("No esta");
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -191,6 +276,7 @@ public class DetailActivity  extends AppCompatActivity {
                        // revenue2.setText(response.getString("name"));
                         detail_descriptio2.setText(response.getString("overview"));
                         detail_star2.setText(response.getString("vote_average"));
+                        urlhomepage=(response.getString("homepage"));
                         if (response.has("production_companies")) {
 
                             // display comma separated list of publishers
@@ -205,6 +291,21 @@ public class DetailActivity  extends AppCompatActivity {
                             }
 
                             //production2.setText(TextUtils.join(", ", publishers));
+                        }
+                        if (response.has("genres")){
+                            final JSONArray gene = response.getJSONArray("genres");
+                            final int ngen = gene.length();
+                            final String[] publishers = new String[ngen];
+                            for (int i = 0; i < ngen; ++i) {
+
+                                JSONObject pro= gene.getJSONObject(i);
+                                String name=pro.getString("name");
+                                publishers[i] = name;
+                            }
+                            gen.setText(TextUtils.join(", ", publishers));
+
+                        }else{
+                            gen.setText("No esta");
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

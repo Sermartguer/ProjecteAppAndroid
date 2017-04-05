@@ -76,10 +76,19 @@ public Comida(){
         }
 
     }
-    public void  getExtraPersons(String id, JsonHttpResponseHandler handler){
+    public void  getExtraPersons(String id,int tipo, JsonHttpResponseHandler handler){
+        if(tipo==1) {
         String url=getApiUrl("movie/");
         client.get(url+id+"/credits?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5", handler);
+        } else if (tipo == 2) {
+            String url=getApiUrl("tv/");
+            client.get(url+id+"/credits?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5", handler);
+        }
+        }
 
+    public void getExtraVideos(String id, JsonHttpResponseHandler handler){
+        String url=getApiUrl("movie/");
+        client.get(url+id+"/videos?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
     }
     @Override
     public String toString() {
