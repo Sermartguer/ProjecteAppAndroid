@@ -17,7 +17,7 @@
             android:title="Movies" />
         <item
             android:id="@+id/item_categorias"
-            android:icon="@drawable/categorias"
+            android:icon="@drawable/televisores"
             android:title="Series" />
         <item
             android:id="@+id/item_configuracion"
@@ -27,6 +27,10 @@
             android:id="@+id/item_contact"
             android:icon="@drawable/locate"
             android:title="@string/item_contact" />
+        <item
+            android:id="@+id/item_forum"
+            android:icon="@drawable/charlar"
+            android:title="Forum" />
     </group>
 
 </menu>

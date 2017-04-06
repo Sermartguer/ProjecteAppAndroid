@@ -65,6 +65,7 @@
         <activity android:name=".ui.Pop"
             android:theme="@style/AppTheme.CustomTheme"
             />
+        <activity android:name=".ui.ForumActivity" />
     </application>
 
 </manifest>
