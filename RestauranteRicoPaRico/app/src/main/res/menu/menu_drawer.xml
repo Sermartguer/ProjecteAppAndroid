@@ -19,18 +19,38 @@
             android:id="@+id/item_categorias"
             android:icon="@drawable/televisores"
             android:title="Series" />
-        <item
-            android:id="@+id/item_configuracion"
-            android:icon="@drawable/configuracion"
-            android:title="@string/item_configuracion" />
-        <item
-            android:id="@+id/item_contact"
-            android:icon="@drawable/locate"
-            android:title="@string/item_contact" />
+        <item android:title="@string/forum">
+            <menu>
         <item
             android:id="@+id/item_forum"
             android:icon="@drawable/charlar"
             android:title="Forum" />
+            </menu>
+        </item>
+        <item android:title="@string/menu_configuration">
+            <menu>
+
+        <item
+            android:id="@+id/item_contact"
+            android:icon="@drawable/locate"
+            android:title="@string/item_contact" />
+
+        <item
+            android:id="@+id/item_configuracion"
+            android:icon="@drawable/configuracion"
+            android:title="@string/item_configuracion" />
+            </menu>
+        </item>
+        <item android:title="@string/menu_lang">
+            <menu>
+                <item
+                    android:id="@+id/en"
+                    android:title="English"/>
+                <item
+                    android:id="@+id/es"
+                    android:title="Spanish"/>
+            </menu>
+        </item>
     </group>
 
 </menu>
