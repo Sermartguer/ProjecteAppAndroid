@@ -14,11 +14,11 @@
         <item
             android:id="@+id/item_cuenta"
             android:icon="@drawable/movie_grey_72x72"
-            android:title="Movies" />
+            android:title="@string/movies" />
         <item
             android:id="@+id/item_categorias"
             android:icon="@drawable/televisores"
-            android:title="Series" />
+            android:title="@string/serie" />
         <item android:title="@string/forum">
             <menu>
         <item

@@ -1,6 +1,7 @@
 package com.herprogramacion.restaurantericoparico.ui;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,8 @@ import com.herprogramacion.restaurantericoparico.ui.init.NowPlaying;
 import com.herprogramacion.restaurantericoparico.ui.init.OnAir;
 import com.herprogramacion.restaurantericoparico.ui.init.TopRatedS;
 import com.herprogramacion.restaurantericoparico.ui.init.test;
+
+import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -115,6 +118,12 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_forum:
                 startActivity(new Intent(this, ForumActivity.class));
             break;
+            case R.id.en:
+                change_lang("en");
+                break;
+            case R.id.es:
+                change_lang("es");
+                break;
         }
         if (fragmentoGenerico != null) {
             fragmentManager
@@ -141,5 +150,21 @@ public class ActividadPrincipal extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void change_lang(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        //String lang_default = Locale.getDefault().getLanguage();
+        //Toast toast1 = Toast.makeText(getApplicationContext(), lang_default, Toast.LENGTH_SHORT);
+        //toast1.show();
+
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getApplicationContext().getResources().updateConfiguration(config, null);
+        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        finish();
+        Intent refresh = new Intent(ActividadPrincipal.this, ActividadPrincipal.class);
+        startActivity(refresh);
     }
 }

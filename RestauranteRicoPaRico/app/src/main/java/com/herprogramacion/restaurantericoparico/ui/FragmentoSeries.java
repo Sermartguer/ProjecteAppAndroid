@@ -60,10 +60,13 @@ public class FragmentoSeries extends Fragment {
     }
 
     private void poblarViewPager(ViewPager viewPager) {
+        String uno=getString(R.string.tr);
+        String dos=getString(R.string.tp);
+        String tres=getString(R.string.tvoa);
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
-        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(0), "Top Rated");
-        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(1), "Popular");
-        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(2), "TV On Air");
+        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(0), uno);
+        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(1),dos);
+        adapter.addFragment(FragmentoSeriesTabs.nuevaInstancia(2), tres);
         viewPager.setAdapter(adapter);
     }
 

@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">"FireMovie"</string>
 
-    <string name="action_settings">Configuración</string>
-    <string name="action_search">Buscar</string>
-    <string name="action_carrito">Añadir al carrito</string>
+    <string name="action_settings">Configuration</string>
+    <string name="action_search">Search</string>
 
-    <string name="item_inicio">Inicio</string>
-    <string name="item_cuenta">Mi Cuenta</string>
-    <string name="item_categorias">Categorías</string>
-    <string name="item_configuracion">Configuración</string>
-    <string name="item_search">Busqueda</string>
-    <string name="item_contact">Contacto</string>
 
-    <string name="titulo_comidas_populares">Lo más pedido</string>
+    <string name="item_inicio">Home</string>
+
+    <string name="item_categorias">Categories</string>
+    <string name="item_configuracion">Configuration</string>
+    <string name="item_search">Search</string>
+    <string name="item_contact">Contact</string>
+
+    <string name="titulo_comidas_populares">More demanded</string>
 
     <string name="item_contact1">\nDenominació de l\'Empresa\n</string>
     <string name="item_contact2">Contacte de l\'empresa\n\n</string>
@@ -25,18 +25,28 @@
     <string name="titulo_tab_direcciones">DIRECCIONES</string>
     <string name="titulo_tab_tarjetas">TARJETAS</string>
 
+    <string name="mv">More Rated</string>
+    <string name="mp">More Popular</string>
+    <string name="oa">Now Playing</string>
+    <string name="tr">Top Rated</string>
+    <string name="tp">TV Popular</string>
+    <string name="tvoa">TV On Air</string>
+
+    <string name="movies">Movies</string>
+    <string name="serie">TV</string>
+
     <string name="texto_no_tarjetas">No tienes ninguna tarjeta asociada</string>
 
     <string name="etiqueta_carrito">Carrito</string>
 
-    <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
-    <string name="etiqueta_contrasena">Contraseña</string>
-    <string name="etiqueta_info_usuario">Información del usuario</string>
+    <string name="texto_cambiar_contrasena">Change password</string>
+    <string name="etiqueta_contrasena">Password</string>
+    <string name="etiqueta_info_usuario">User Information</string>
 
     <string name="player_error">Error initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="menu_configuration">Configuracion</string>
     <string name="forum">Forum</string>
-    <string name="menu_lang">Idioma</string>
+    <string name="menu_lang">Language</string>
 </resources>

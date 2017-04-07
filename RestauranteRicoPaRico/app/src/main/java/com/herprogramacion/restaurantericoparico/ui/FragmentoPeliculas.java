@@ -60,10 +60,13 @@ public class FragmentoPeliculas extends Fragment {
     }
 
     private void poblarViewPager(ViewPager viewPager) {
+        String uno=getString(R.string.mv);
+        String dos=getString(R.string.mp);
+        String tres=getString(R.string.oa);
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
-        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(0), "Mas valoradas");
-        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(1), "Mas populares");
-        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(2), "En cartelera");
+        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(0), uno);
+        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(1), dos);
+        adapter.addFragment(FragmentoPeliculasTab.nuevaInstancia(2),tres);
         viewPager.setAdapter(adapter);
     }
 
