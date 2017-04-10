@@ -29,7 +29,7 @@ import java.util.Locale;
 public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-
+    public static String language="es";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,9 +151,13 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public static String getlang(){
+        return language;
+    }
     private void change_lang(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
+        this.language=lang;
         //String lang_default = Locale.getDefault().getLanguage();
         //Toast toast1 = Toast.makeText(getApplicationContext(), lang_default, Toast.LENGTH_SHORT);
         //toast1.show();

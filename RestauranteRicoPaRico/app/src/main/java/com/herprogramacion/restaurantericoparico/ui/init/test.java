@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.herprogramacion.restaurantericoparico.R;
 import com.herprogramacion.restaurantericoparico.modelo.Comida;
 import com.herprogramacion.restaurantericoparico.modelo.Comidas;
+import com.herprogramacion.restaurantericoparico.ui.ActividadPrincipal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +32,7 @@ public class test extends AppCompatActivity {
 
     // URL to get contacts JSON
 
-    private static String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&page=1";
+    private static String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language="+lan()+"&page=1";
 
 
     @Override
@@ -49,6 +50,9 @@ public class test extends AppCompatActivity {
     /**
      * Async task class to get json by making HTTP call
      */
+    private static String lan(){
+        return ActividadPrincipal.getlang();
+    }
     public class GetContacts extends AsyncTask<Void, Void, Void> {
 
         @Override

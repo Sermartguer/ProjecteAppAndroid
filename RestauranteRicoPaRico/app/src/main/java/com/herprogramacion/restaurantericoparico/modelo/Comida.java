@@ -1,6 +1,7 @@
 
 package com.herprogramacion.restaurantericoparico.modelo;
 
+import com.herprogramacion.restaurantericoparico.ui.ActividadPrincipal;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -65,14 +66,18 @@ public Comida(){
     private String getApiUrl(String relativeUrl) {
         return API_BASE_URL + relativeUrl;
     }
+    private String lan(){
+        return ActividadPrincipal.getlang();
+    }
     // Method for accessing books API to get publisher and no. of pages in a book.
     public void getExtraBookDetails(String openLibraryId,int tipo, JsonHttpResponseHandler handler) {
+
         if(tipo==1) {
             String url = getApiUrl("movie/");
-            client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
+            client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language="+lan(), handler);
         } else if (tipo == 2) {
             String url = getApiUrl("tv/");
-            client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
+            client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language="+lan(), handler);
         }
 
     }
@@ -88,7 +93,7 @@ public Comida(){
 
     public void getExtraVideos(String id, JsonHttpResponseHandler handler){
         String url=getApiUrl("movie/");
-        client.get(url+id+"/videos?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
+        client.get(url+id+"/videos?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language="+lan(), handler);
     }
     @Override
     public String toString() {

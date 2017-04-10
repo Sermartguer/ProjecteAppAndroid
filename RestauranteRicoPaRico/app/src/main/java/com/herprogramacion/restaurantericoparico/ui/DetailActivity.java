@@ -189,7 +189,6 @@ public class DetailActivity  extends AppCompatActivity {
         Toast.makeText(this, ""+itemss.get(position1).toString(), Toast.LENGTH_SHORT).show();
         videos.getExtraVideos(itemss.get(position1).toString(),new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
                 try {
 
                     // display comma separated list of publishers
@@ -218,39 +217,108 @@ public class DetailActivity  extends AppCompatActivity {
                     // display comma separated list of publishers
                     final JSONArray publisher = response.getJSONArray("cast");
                     final int numPublishers = publisher.length();
-                    final String[] publishers = new String[numPublishers];
-                    final String[] characters=new String[numPublishers];
-                    final String[] imgs=new String[numPublishers];
-                    caracter=new String[numPublishers];
-                    nombre=new String[numPublishers];
-                    profile=new String[numPublishers];
-                    for (int i = 0; i < numPublishers; ++i) {
+                   if(numPublishers<1){
+                       p4.setVisibility(View.GONE);
+                       r4.setVisibility(View.GONE);
+                       p5.setVisibility(View.GONE);
+                       r5.setVisibility(View.GONE);
+                       p6.setVisibility(View.GONE);
+                       r6.setVisibility(View.GONE);
+                   }else if(numPublishers<2&&numPublishers>0) {
+                       final String[] publishers = new String[numPublishers];
+                       final String[] characters = new String[numPublishers];
+                       final String[] imgs = new String[numPublishers];
+                       caracter = new String[numPublishers];
+                       nombre = new String[numPublishers];
+                       profile = new String[numPublishers];
+                       for (int i = 0; i < numPublishers; ++i) {
 
-                        JSONObject pro= publisher.getJSONObject(i);
-                        String name=pro.getString("name");
-                        String character=pro.getString("character");
-                        String img=pro.getString("profile_path");
-                        publishers[i] = name;
-                        characters[i]=character;
-                        imgs[i]=img;
-                        caracter[i]=character;
-                        nombre[i]=name;
-                        profile[i]=img;
+                           JSONObject pro = publisher.getJSONObject(i);
+                           String name = pro.getString("name");
+                           String character = pro.getString("character");
+                           String img = pro.getString("profile_path");
+                           publishers[i] = name;
+                           characters[i] = character;
+                           imgs[i] = img;
+                           caracter[i] = character;
+                           nombre[i] = name;
+                           profile[i] = img;
 
+                       }
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[0]))).error(R.drawable.ic_nocover).into(i1);
+
+                       p1.setText(publishers[0]);
+                       r1.setText(characters[0]);
+                       p2.setVisibility(View.GONE);
+                       r2.setVisibility(View.GONE);
+                       p3.setVisibility(View.GONE);
+                       r3.setVisibility(View.GONE);
+                   }else if(numPublishers>1&&numPublishers<3){
+                       final String[] publishers = new String[numPublishers];
+                       final String[] characters = new String[numPublishers];
+                       final String[] imgs = new String[numPublishers];
+                       caracter = new String[numPublishers];
+                       nombre = new String[numPublishers];
+                       profile = new String[numPublishers];
+                       for (int i = 0; i < numPublishers; ++i) {
+
+                           JSONObject pro = publisher.getJSONObject(i);
+                           String name = pro.getString("name");
+                           String character = pro.getString("character");
+                           String img = pro.getString("profile_path");
+                           publishers[i] = name;
+                           characters[i] = character;
+                           imgs[i] = img;
+                           caracter[i] = character;
+                           nombre[i] = name;
+                           profile[i] = img;
+
+                       }
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[0]))).error(R.drawable.ic_nocover).into(i1);
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[1]))).error(R.drawable.ic_nocover).into(i1);
+
+                       p1.setText(publishers[0]);
+                       r1.setText(characters[0]);
+                       p2.setText(characters[1]);
+                       r2.setText(characters[1]);
+                       p3.setVisibility(View.GONE);
+                       r3.setVisibility(View.GONE);
+                }else if(numPublishers>3){
+                       final String[] publishers = new String[numPublishers];
+                       final String[] characters=new String[numPublishers];
+                       final String[] imgs=new String[numPublishers];
+                       caracter=new String[numPublishers];
+                       nombre=new String[numPublishers];
+                       profile=new String[numPublishers];
+                       for (int i = 0; i < numPublishers; ++i) {
+
+                           JSONObject pro= publisher.getJSONObject(i);
+                           String name=pro.getString("name");
+                           String character=pro.getString("character");
+                           String img=pro.getString("profile_path");
+                           publishers[i] = name;
+                           characters[i]=character;
+                           imgs[i]=img;
+                           caracter[i]=character;
+                           nombre[i]=name;
+                           profile[i]=img;
+
+                       }
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[0]))).error(R.drawable.ic_nocover).into(i1);
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[1]))).error(R.drawable.ic_nocover).into(i2);
+                       Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[2]))).error(R.drawable.ic_nocover).into(i3);
+
+                       p1.setText(publishers[0]);
+                       r1.setText(characters[0]);
+                       p2.setText(publishers[1]);
+                       r2.setText(characters[1]);
+                       p3.setText(publishers[2]);
+                       r3.setText(characters[2]);
+                   }
+                    } catch(JSONException e){
+                        e.printStackTrace();
                     }
-                    Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[0]))).error(R.drawable.ic_nocover).into(i1);
-                    Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[1]))).error(R.drawable.ic_nocover).into(i2);
-                    Picasso.with(getBaseContext()).load(Uri.parse(items.get(position1).getTest(imgs[2]))).error(R.drawable.ic_nocover).into(i3);
 
-                    p1.setText(publishers[0]);
-                    r1.setText(characters[0]);
-                    p2.setText(publishers[1]);
-                    r2.setText(characters[1]);
-                    p3.setText(publishers[2]);
-                    r3.setText(characters[2]);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 if(tipo1==1){
                     try {
 
@@ -413,14 +481,14 @@ public class DetailActivity  extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 if(tipo1==1) {
                     try {
-                        name.setText(response.getString("original_title"));
+                        name.setText(response.getString("title"));
                         //date2.setText(response.getString("release_date"));
                         //budget2.setText(Integer.toString(response.getInt("budget")) + " $");
                         //revenue2.setText(Integer.toString(response.getInt("revenue")) + " $");
                         detail_descriptio2.setText(response.getString("overview"));
                         detail_star2.setText(response.getString("vote_average"));
                         urlhomepage=(response.getString("homepage"));
-                        time.setText(response.getString("runtime")+"minutos");
+                        time.setText(response.getString("runtime")+"min");
                         if (response.has("production_companies")) {
 
                             // display comma separated list of publishers
@@ -463,6 +531,7 @@ public class DetailActivity  extends AppCompatActivity {
                         detail_descriptio2.setText(response.getString("overview"));
                         detail_star2.setText(response.getString("vote_average"));
                         urlhomepage=(response.getString("homepage"));
+                        time.setVisibility(View.GONE);
                         /*if (response.has("production_companies")) {
 
                             // display comma separated list of publishers
