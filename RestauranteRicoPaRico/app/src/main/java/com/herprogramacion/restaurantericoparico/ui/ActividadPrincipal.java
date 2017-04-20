@@ -3,6 +3,7 @@ package com.herprogramacion.restaurantericoparico.ui;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
 import com.herprogramacion.restaurantericoparico.modelo.Comidas;
@@ -30,6 +32,17 @@ public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     public static String language="es";
+    private static final long delay = 2000L;
+    private boolean mRecentlyBackPressed = false;
+    private Handler mExitHandler = new Handler();
+    private Runnable mExitRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            mRecentlyBackPressed=false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +69,22 @@ public class ActividadPrincipal extends AppCompatActivity {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
             seleccionarItem(navigationView.getMenu().getItem(0));
+        }
+    }
+    @Override
+    public void onBackPressed() {
+
+        //You may also add condition if (doubleBackToExitPressedOnce || fragmentManager.getBackStackEntryCount() != 0) // in case of Fragment-based add
+        if (mRecentlyBackPressed) {
+            mExitHandler.removeCallbacks(mExitRunnable);
+            mExitHandler = null;
+            super.onBackPressed();
+        }
+        else
+        {
+            mRecentlyBackPressed = true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            mExitHandler.postDelayed(mExitRunnable, delay);
         }
     }
 

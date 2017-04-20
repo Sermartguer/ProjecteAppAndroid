@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="#f13e00"
+        android:background="#0c58af"
         android:gravity="center"
         android:padding="8dp"
         android:text="Próximos estrenos"

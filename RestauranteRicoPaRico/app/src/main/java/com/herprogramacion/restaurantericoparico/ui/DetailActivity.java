@@ -14,7 +14,6 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -69,13 +68,15 @@ public class DetailActivity  extends AppCompatActivity {
     private Comida comida;
     private Comida comidaw;
     private Comida videos;
-    private Button bton;
+    private Comida test;
     private ImageButton trailer;
     private LinearLayout bgElement;
     private final String[] video=new String[1];
-    private String[] caracter;
+    private String[] vidtest;
     private String[] nombre;
     private String[] profile;
+    private String[] caracter;
+
     private String urlvideo;
     private TextView gen;
     private ImageView uri;
@@ -117,8 +118,9 @@ public class DetailActivity  extends AppCompatActivity {
         r6=(TextView)findViewById(R.id.r6);
         i6=(ImageView)findViewById(R.id.i6);
 
+
+
         time=(TextView)findViewById(R.id.time);
-        bton=(Button)findViewById(R.id.button2);
         gen=(TextView)findViewById(R.id.g1);
         uriyt=(ImageView) findViewById(R.id.imageButton);
         uriyt.setOnClickListener(new View.OnClickListener(){
@@ -144,15 +146,6 @@ public class DetailActivity  extends AppCompatActivity {
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }
-            }
-        });
-        bton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-
-                //Intent intent = new Intent(DetailActivity.this, VideoTube.class);
-                // intent.putExtra("video",video);
-                //startActivity(intent);
-
             }
         });
         ///Toast alert = Toast.makeText(this,"Valor Position"+position1,Toast.LENGTH_LONG);
@@ -218,12 +211,15 @@ public class DetailActivity  extends AppCompatActivity {
                     final JSONArray publisher = response.getJSONArray("cast");
                     final int numPublishers = publisher.length();
                    if(numPublishers<1){
-                       p4.setVisibility(View.GONE);
-                       r4.setVisibility(View.GONE);
-                       p5.setVisibility(View.GONE);
-                       r5.setVisibility(View.GONE);
-                       p6.setVisibility(View.GONE);
-                       r6.setVisibility(View.GONE);
+                       p1.setVisibility(View.GONE);
+                       r1.setVisibility(View.GONE);
+                       i1.setVisibility(View.GONE);
+                       p2.setVisibility(View.GONE);
+                       r2.setVisibility(View.GONE);
+                       i2.setVisibility(View.GONE);
+                       p3.setVisibility(View.GONE);
+                       r3.setVisibility(View.GONE);
+                       i3.setVisibility(View.GONE);
                    }else if(numPublishers<2&&numPublishers>0) {
                        final String[] publishers = new String[numPublishers];
                        final String[] characters = new String[numPublishers];
@@ -251,8 +247,10 @@ public class DetailActivity  extends AppCompatActivity {
                        r1.setText(characters[0]);
                        p2.setVisibility(View.GONE);
                        r2.setVisibility(View.GONE);
+                       i2.setVisibility(View.GONE);
                        p3.setVisibility(View.GONE);
                        r3.setVisibility(View.GONE);
+                       i3.setVisibility(View.GONE);
                    }else if(numPublishers>1&&numPublishers<3){
                        final String[] publishers = new String[numPublishers];
                        final String[] characters = new String[numPublishers];
@@ -283,6 +281,7 @@ public class DetailActivity  extends AppCompatActivity {
                        r2.setText(characters[1]);
                        p3.setVisibility(View.GONE);
                        r3.setVisibility(View.GONE);
+                       i3.setVisibility(View.GONE);
                 }else if(numPublishers>3){
                        final String[] publishers = new String[numPublishers];
                        final String[] characters=new String[numPublishers];
@@ -368,10 +367,13 @@ public class DetailActivity  extends AppCompatActivity {
                         if(numPublishers<1){
                             p4.setVisibility(View.GONE);
                             r4.setVisibility(View.GONE);
+                            i4.setVisibility(View.GONE);
                             p5.setVisibility(View.GONE);
                             r5.setVisibility(View.GONE);
+                            i5.setVisibility(View.GONE);
                             p6.setVisibility(View.GONE);
                             r6.setVisibility(View.GONE);
+                            i6.setVisibility(View.GONE);
                         }else if(numPublishers<2&&numPublishers>0){
                             final String[] publishers = new String[numPublishers];
                             final String[] characters=new String[numPublishers];
@@ -398,8 +400,10 @@ public class DetailActivity  extends AppCompatActivity {
                             r4.setText(characters[0]);
                             p5.setVisibility(View.GONE);
                             r5.setVisibility(View.GONE);
+                            i5.setVisibility(View.GONE);
                             p6.setVisibility(View.GONE);
                             r6.setVisibility(View.GONE);
+                            i6.setVisibility(View.GONE);
                         }else if(numPublishers>1&&numPublishers<3){
                             final String[] publishers = new String[numPublishers];
                             final String[] characters=new String[numPublishers];
@@ -430,6 +434,7 @@ public class DetailActivity  extends AppCompatActivity {
                             r5.setText(characters[1]);
                             p6.setVisibility(View.GONE);
                             r6.setVisibility(View.GONE);
+                            i6.setVisibility(View.GONE);
                         }else if(numPublishers>3){
                             final String[] publishers = new String[numPublishers];
                             final String[] characters=new String[numPublishers];
@@ -487,8 +492,13 @@ public class DetailActivity  extends AppCompatActivity {
                         //revenue2.setText(Integer.toString(response.getInt("revenue")) + " $");
                         detail_descriptio2.setText(response.getString("overview"));
                         detail_star2.setText(response.getString("vote_average"));
-                        urlhomepage=(response.getString("homepage"));
-                        time.setText(response.getString("runtime")+"min");
+                        urlhomepage = (response.getString("homepage"));
+                        String runt = response.getString("runtime");
+                        if (runt.equals(0)) {
+                            time.setVisibility(View.GONE);
+                        } else{
+                            time.setText(response.getString("runtime") + "min");
+                    }
                         if (response.has("production_companies")) {
 
                             // display comma separated list of publishers

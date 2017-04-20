@@ -1,9 +1,10 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#585656">
+    android:background="#4a5259">
 
     <!-- App Bar -->
     <android.support.design.widget.AppBarLayout
@@ -72,13 +73,13 @@
                         android:text="Nombre"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#ffffff"
-                        android:textSize="25sp"
+                        android:textSize="23sp"
                         android:textStyle="bold" />
 
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="#000000" />
+                        android:background="#8e8e8e" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -99,29 +100,41 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.04"
+                            android:gravity="center"
+                            android:text="by TMDb"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
+
+                        <TextView
                             android:id="@+id/time"
                             android:layout_width="wrap_content"
-                            android:layout_height="41dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="0.04"
                             android:gravity="center"
                             android:text="Time"
-                            android:textColor="#ffffff" />
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
 
                         <ImageButton
                             android:id="@+id/imageButton"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.04"
-                            android:background="#585656"
-                            android:src="@drawable/youtube" />
+                            android:background="#4a5259"
+                            android:src="@drawable/yt_ico_launch" />
 
                         <ImageButton
                             android:id="@+id/uri"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.03"
-                            android:background="#585656"
-                            android:src="@drawable/world_wide_web" />
+                            android:background="#4a5259"
+                            android:src="@drawable/web_ico" />
 
                     </LinearLayout>
 
@@ -137,13 +150,14 @@
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:background="#000000" />
+                    android:background="#8e8e8e"/>
 
                 <TextView
                     android:id="@+id/detail_descriptio2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="3dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="TextView"
                     android:textColor="#ffffff" />
             </LinearLayout>
@@ -158,7 +172,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
                     android:layout_marginBottom="5dp"
-                    android:background="#000000" />
+                    android:background="#8e8e8e" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -242,21 +256,11 @@
                             android:textColor="#ffffff" />
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#585656"
-                        android:text="VER MÁS"
-                        android:textColor="#ffffff"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="265dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -295,7 +299,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:weightSum="1">
 
@@ -304,7 +308,7 @@
                     android:layout_height="1dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:background="#000000" />
+                    android:background="#8e8e8e" />
 
                 <TextView
                     android:id="@+id/textView15"
@@ -316,7 +320,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:layout_width="264dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
@@ -388,21 +392,11 @@
                             android:textColor="#ffffff" />
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#585656"
-                        android:text="VER MÁS"
-                        android:textColor="#ffffff"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="265dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -451,7 +445,7 @@
                     android:layout_height="1dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:background="#000000" />
+                    android:background="#8e8e8e" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -475,6 +469,30 @@
 
     </android.support.v4.widget.NestedScrollView>
     <!-- FAB -->
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/menu_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        app:fab_labelStyle="@style/Etiquetas"
+        fab:fab_addButtonColorNormal="?attr/colorPrimary"
+        fab:fab_addButtonSize="normal"
+        fab:fab_labelStyle="@style/Etiquetas"
+        fab:fab_labelsPosition="left">
+
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            android:src="@drawable/ar"
+            fab:fab_size="mini"
+            fab:fab_title="Añadir a la cesta" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 
 </android.support.design.widget.CoordinatorLayout>

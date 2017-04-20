@@ -13,17 +13,17 @@
             android:title="@string/item_search" />
         <item
             android:id="@+id/item_cuenta"
-            android:icon="@drawable/movie_grey_72x72"
+            android:icon="@drawable/movie_ico"
             android:title="@string/movies" />
         <item
             android:id="@+id/item_categorias"
-            android:icon="@drawable/televisores"
+            android:icon="@drawable/serie_ico"
             android:title="@string/serie" />
         <item android:title="@string/forum">
             <menu>
         <item
             android:id="@+id/item_forum"
-            android:icon="@drawable/charlar"
+            android:icon="@drawable/forum_ico"
             android:title="Forum" />
             </menu>
         </item>

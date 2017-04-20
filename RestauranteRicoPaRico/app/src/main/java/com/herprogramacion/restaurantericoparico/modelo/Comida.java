@@ -95,6 +95,11 @@ public Comida(){
         String url=getApiUrl("movie/");
         client.get(url+id+"/videos?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language="+lan(), handler);
     }
+    public void getRecomended(JsonHttpResponseHandler handler){
+        String url=getApiUrl("movie/");
+        client.get(url+"/1891/recommendations?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&page=1", handler);
+
+    }
     @Override
     public String toString() {
         return  openLibraryId;
