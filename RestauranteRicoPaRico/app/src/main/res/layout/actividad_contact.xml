@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#4a5259">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -12,40 +13,78 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:id="@+id/textView18"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/lite_demo_introtext1"
+        android:layout_height="wrap_content"
+        android:text="Ayuda y FAQs"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:textColor="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/imageView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/item_contact1" />
-        <TextView
-            android:id="@+id/tag_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_weight="0.49"
+            app:srcCompat="@drawable/l_mail"
+            android:layout_gravity="center"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/lite_demo_introtext2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_contact2" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/supp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:text="Contacto con el soporte"
+            android:layout_marginRight="10dp"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <fragment
-                android:id="@+id/map"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                class="com.google.android.gms.maps.SupportMapFragment" />
-        </FrameLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/help_l"
+            android:layout_gravity="center"
+            android:layout_weight="0.20"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FAQs"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contacto"
+        android:layout_margin="5dp"
+        android:textColor="#ffffff"
+        />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
 
 </LinearLayout>

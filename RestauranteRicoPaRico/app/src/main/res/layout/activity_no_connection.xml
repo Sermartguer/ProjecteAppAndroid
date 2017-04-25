@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.herprogramacion.restaurantericoparico.ui.NoConnection">
+
+
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="191dp"
+        android:layout_height="182dp"
+        app:srcCompat="@drawable/conect"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Internet Connection"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="328dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please try reconnect"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="393dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/reconect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reconnect"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="441dp"
+        android:layout_gravity="center"/>
+</LinearLayout>

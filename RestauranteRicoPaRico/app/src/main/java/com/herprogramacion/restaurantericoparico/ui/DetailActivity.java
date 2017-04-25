@@ -3,7 +3,10 @@ package com.herprogramacion.restaurantericoparico.ui;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -122,6 +125,11 @@ public class DetailActivity  extends AppCompatActivity {
 
         time=(TextView)findViewById(R.id.time);
         gen=(TextView)findViewById(R.id.g1);
+        if (!compruebaConexion(this)) {
+            startActivity(new Intent(this,NoConnection.class));
+            Toast.makeText(getBaseContext(),"Necesaria conexión a internet ", Toast.LENGTH_SHORT).show();
+            finish();
+        }
         uriyt=(ImageView) findViewById(R.id.imageButton);
         uriyt.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -152,6 +160,7 @@ public class DetailActivity  extends AppCompatActivity {
         // alert.show();
         // alert = Toast.makeText(this,"Valor Position"+itemss.get(position1).toString(),Toast.LENGTH_LONG);
         //alert.show();
+
         setToolbar();
         int position = getIntent().getIntExtra(EXTRA_POSITION, -1);
         setupViews(itemss,position,idfilm);
@@ -618,7 +627,25 @@ public class DetailActivity  extends AppCompatActivity {
         tipo1=tipo;
         position1=position;
         itemss=items;
+
         context.startActivity(intent);
+    }
+    public static boolean compruebaConexion(Context context) {
+
+        boolean connected = false;
+
+        ConnectivityManager connec = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Recupera todas las redes (tanto móviles como wifi)
+        NetworkInfo[] redes = connec.getAllNetworkInfo();
+
+        for (int i = 0; i < redes.length; i++) {
+            // Si alguna red tiene conexión, se devuelve true
+            if (redes[i].getState() == NetworkInfo.State.CONNECTED) {
+                connected = true;
+            }
+        }
+        return connected;
     }
 
 }

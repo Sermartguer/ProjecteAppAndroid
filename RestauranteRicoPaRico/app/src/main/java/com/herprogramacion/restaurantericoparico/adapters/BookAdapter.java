@@ -24,10 +24,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
     private static class ViewHolder {
         public ImageView ivCover;
         public TextView tvTitle;
-        public TextView tvAuthor;
-        public TextView stars;
-        public TextView popu;
-        public TextView Rdate;
+        public TextView tvStars;
+        public TextView tvRdate;
+        public TextView tvVotecount;
     }
 
     public BookAdapter(Context context, ArrayList<Book> aBooks) {
@@ -48,23 +47,20 @@ public class BookAdapter extends ArrayAdapter<Book> {
             convertView = inflater.inflate(R.layout.item_book, parent, false);
             viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.ivBookCover);
             viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.tvTitle);
-            viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
-            viewHolder.stars= (TextView)convertView.findViewById(R.id.tvStars);
-            viewHolder.popu= (TextView)convertView.findViewById(R.id.tvVotecount);
-            viewHolder.Rdate= (TextView)convertView.findViewById(R.id.tvRdate);
+            viewHolder.tvStars = (TextView)convertView.findViewById(R.id.tvStars);
+            viewHolder.tvRdate = (TextView)convertView.findViewById(R.id.tvRdate);
+            viewHolder.tvVotecount = (TextView)convertView.findViewById(R.id.tvVotecount);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // Populate the data into the template view using the data object
         viewHolder.tvTitle.setText(book.getTitle());
-        viewHolder.tvAuthor.setText(book.getAuthor());
-        viewHolder.stars.setText(book.getStars()+"/10");
-        viewHolder.popu.setText(book.getPopu());
-        viewHolder.Rdate.setText(book.getRdate());
+        viewHolder.tvStars.setText(book.getStars());
+        viewHolder.tvRdate.setText(book.getRdate());
+        viewHolder.tvVotecount.setText(book.getVotecount());
         Picasso.with(getContext()).load(Uri.parse(book.getImg())).error(R.drawable.ic_nocover).into(viewHolder.ivCover);
         // Return the completed view to render on screen
         return convertView;
     }
 }
-

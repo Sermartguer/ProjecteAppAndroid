@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.herprogramacion.restaurantericoparico.R;
 //import android.util.Log;
 
@@ -44,16 +45,11 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void startApp() {
-        Intent intent = new Intent(SplashScreen.this, ActividadPrincipal.class);
-        startActivity(intent);
-    }
-        /*new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);finish();
 
-            }
-        }, 4000);
-    }*/
-   }
+            Intent intent = new Intent(SplashScreen.this, ActividadPrincipal.class);
+            startActivity(intent);
+
+    }
+
+
+}

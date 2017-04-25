@@ -32,7 +32,7 @@
 
         <item
             android:id="@+id/item_contact"
-            android:icon="@drawable/locate"
+            android:icon="@drawable/help_l"
             android:title="@string/item_contact" />
 
         <item

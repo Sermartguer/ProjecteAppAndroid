@@ -36,28 +36,32 @@ import java.io.IOException;
 public class BookDetailActivity extends AppCompatActivity {
     private ImageView ivBookCover;
     private TextView tvTitle;
+    private TextView tvPublisher;
+    private TextView tvPageCount;
     private BookClient client;
-    private TextView RDate;
-    private TextView Budget;
-    private TextView Revenue;
-    private TextView Production;
-    private TextView Stars;
-    private TextView desc;
+    private TextView tvRdate;
+    private TextView description;
+    private TextView budget;
+    private TextView revenue;
+    private TextView status;
+    private TextView runtime;
+    private TextView stars2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
         // Fetch views
-        ivBookCover = (ImageView) findViewById(R.id.detail_imag);
-        tvTitle = (TextView) findViewById(R.id.detail_nam);
-        RDate = (TextView) findViewById(R.id.date1);
-        Budget = (TextView) findViewById(R.id.budget1);
-        Revenue = (TextView) findViewById(R.id.revenue1);
-        Production = (TextView) findViewById(R.id.production1);
-        Stars = (TextView) findViewById(R.id.detail_star);
-        desc = (TextView) findViewById(R.id.detail_descriptio);
-
+        ivBookCover = (ImageView) findViewById(R.id.ivBookCover);
+        tvRdate = (TextView) findViewById(R.id.tvRdate);
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        tvPageCount = (TextView) findViewById(R.id.tvPageCount);
+        //description = (ImageView) findViewById(R.id.description);
+        budget = (TextView) findViewById(R.id.budget);
+        revenue = (TextView) findViewById(R.id.revenue);
+        status = (TextView) findViewById(R.id.status);
+        runtime = (TextView) findViewById(R.id.runtime);
+        // stars2 = (TextView) findViewById(R.id.stars2);
         // Use the book to populate the data into our views
         Book book = (Book) getIntent().getSerializableExtra(BookListActivity.BOOK_DETAIL_KEY);
         loadBook(book);
@@ -68,41 +72,58 @@ public class BookDetailActivity extends AppCompatActivity {
         //change activity title
         this.setTitle(book.getTitle());
         // Populate data
+
         Picasso.with(this).load(Uri.parse(book.getImg())).error(R.drawable.ic_nocover).into(ivBookCover);
+        tvRdate.setText(book.getRdate());
         tvTitle.setText(book.getTitle());
-        Stars.setText(book.getStars()+"/10");
-        RDate.setText(book.getRdate());
+        budget.setText(book.getBudget());
+        revenue.setText(book.getRevenue());
+        status.setText(book.getStatus());
+        runtime.setText(book.getRuntime());
+
         // fetch extra book data from books API
         client = new BookClient();
         client.getExtraBookDetails(book.getOpenLibraryId(), new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                try {
-                    Budget.setText(Integer.toString(response.getInt("budget"))+" $");
-                    Revenue.setText(Integer.toString(response.getInt("revenue"))+" $");
-                    desc.setText(response.getString("overview"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
                 try {
-                    if (response.has("production_companies")) {
+                    if (response.has("publishers")) {
 
                         // display comma separated list of publishers
-                        final JSONArray publisher = response.getJSONArray("production_companies");
+                        final JSONArray publisher = response.getJSONArray("publishers");
                         final int numPublishers = publisher.length();
                         final String[] publishers = new String[numPublishers];
                         for (int i = 0; i < numPublishers; ++i) {
-
-                            JSONObject pro= publisher.getJSONObject(i);
-                            String name=pro.getString("name");
-                            publishers[i] = name;
+                            publishers[i] = publisher.getString(i);
                         }
-
-                        Production.setText(TextUtils.join(", ", publishers));
+                        tvPublisher.setText(TextUtils.join(", ", publishers));
                     }
-
+                    if (response.has("vote_count")) {
+                        tvPageCount.setText(Integer.toString(response.getInt("vote_count")));
+                    }
+                    if (response.has("release_date")) {
+                        tvRdate.setText(Integer.toString(response.getInt("release_date")));
+                    }
+                    if (response.has("budget")) {
+                        budget.setText(Integer.toString(response.getInt("budget")));
+                    }
+                    if (response.has("description")) {
+                        description.setText(Integer.toString(response.getInt("description")));
+                    }
+                    if (response.has("revenue")) {
+                        revenue.setText(Integer.toString(response.getInt("revenue")));
+                    }
+                    if (response.has("status")) {
+                        status.setText(Integer.toString(response.getInt("status")));
+                    }
+                    if (response.has("runtime")) {
+                        runtime.setText(Integer.toString(response.getInt("runtime")));
+                    }
+                    if (response.has("stars2")) {
+                        stars2.setText(Integer.toString(response.getInt("stars2")));
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();

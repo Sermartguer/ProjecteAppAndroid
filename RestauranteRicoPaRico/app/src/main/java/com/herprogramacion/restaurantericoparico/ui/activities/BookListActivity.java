@@ -30,6 +30,7 @@ import java.util.ArrayList;
  */
 
 public class BookListActivity extends AppCompatActivity {
+
     public static final String BOOK_DETAIL_KEY = "book";
     private ListView lvBooks;
     private BookAdapter bookAdapter;
@@ -101,7 +102,7 @@ public class BookListActivity extends AppCompatActivity {
             }
         });
     }
-    private void fetchBook() {
+    /*private void fetchBook() {
 
         // Show progress bar before making network request
         client = new BookClient();
@@ -135,7 +136,7 @@ public class BookListActivity extends AppCompatActivity {
                 progress.setVisibility(ProgressBar.GONE);
             }
         });
-    }
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

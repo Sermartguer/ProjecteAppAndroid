@@ -1,7 +1,10 @@
 package com.herprogramacion.restaurantericoparico.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -58,6 +61,11 @@ public class ActividadPrincipal extends AppCompatActivity {
         Comidas.NowPlaying.clear();
         Comidas.OnAir.clear();
         Comidas.TopRatedS.clear();
+        if (!compruebaConexion(this)) {
+            startActivity(new Intent(this,NoConnection.class));
+            Toast.makeText(getBaseContext(),"Necesaria conexión a internet ", Toast.LENGTH_SHORT).show();
+            finish();
+        }
         startActivity(new Intent(this, test.class));
         startActivity(new Intent(this, MorePopMovie.class));
         startActivity(new Intent(this, NowPlaying.class));
@@ -199,5 +207,22 @@ public class ActividadPrincipal extends AppCompatActivity {
         finish();
         Intent refresh = new Intent(ActividadPrincipal.this, ActividadPrincipal.class);
         startActivity(refresh);
+    }
+    public static boolean compruebaConexion(Context context) {
+
+        boolean connected = false;
+
+        ConnectivityManager connec = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Recupera todas las redes (tanto móviles como wifi)
+        NetworkInfo[] redes = connec.getAllNetworkInfo();
+
+        for (int i = 0; i < redes.length; i++) {
+            // Si alguna red tiene conexión, se devuelve true
+            if (redes[i].getState() == NetworkInfo.State.CONNECTED) {
+                connected = true;
+            }
+        }
+        return connected;
     }
 }
