@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.ForumActivity"
-    android:background="#585656">
+    android:background="@color/color_fondo">
 
     <ImageView
         android:id="@+id/emoji_button"

@@ -155,6 +155,10 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_forum:
                 startActivity(new Intent(this, ForumActivity.class));
             break;
+              /*Favoritos*/
+            case R.id.item_favorite:
+                fragmentoGenerico = new FragmentFavorite();
+                break;
             case R.id.en:
                 change_lang("en");
                 break;

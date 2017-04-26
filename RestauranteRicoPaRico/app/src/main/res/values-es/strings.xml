@@ -31,6 +31,8 @@
     <string name="tr">Mas valoradas</string>
     <string name="tp">Popular en TV</string>
     <string name="tvoa">Emitiendose</string>
+    <string name="ser">Series</string>
+    <string name="pel">Peliculas</string>
 
     <string name="movies">Peliculas</string>
     <string name="serie">Series</string>
@@ -49,4 +51,21 @@
     <string name="menu_configuration">Configuracion</string>
     <string name="forum">Foro</string>
     <string name="menu_lang">Idioma</string>
+
+    <string name="profileTitle">Perfil Profesional</string>
+
+    <string name="action_clear">Limpiar Perfil</string>
+
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellidos:</string>
+    <string name="email">Email:</string>
+    <string name="cargo">Cargo:</string>
+    <string name="guardar">Guardar</string>
+    <string name="msg_save">Perfil profesional guardado correctamente</string>
+
+    <string name="preference_file_key">preference_file_key</string>
+    <string name="nombre_key">nombreKey</string>
+    <string name="apellido_key">apellidoKey</string>
+    <string name="email_key">emailKey</string>
+    <string name="cargo_key">cargoKey</string>
 </resources>

@@ -21,7 +21,13 @@
         <activity
             android:name=".ui.ActividadPrincipal"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ConNavigationDrawer" />
+            android:theme="@style/Theme.ConNavigationDrawer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.ActividadConfiguracion"
             android:label="@string/titulo_actividad_configuracion"
@@ -67,17 +73,20 @@
         <activity android:name=".ui.ForumActivity" />
         <activity
             android:name=".ui.SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".ui.activities.BookDetailActivity" />
-        <activity android:name=".ui.NoConnection"
-            android:label="No Connection"></activity>
-        <activity android:name=".models.Contacto" />
+        <activity
+            android:name=".ui.NoConnection"
+            android:label="No Connection" />
+        <activity
+            android:name=".models.Contacto"
+            android:parentActivityName=".ui.ActividadPrincipal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ActividadPrincipal" />
+        </activity>
+        <activity android:name=".ui.init.Peliculas" />
+        <activity android:name=".ui.FAQs"></activity>
     </application>
 
 </manifest>

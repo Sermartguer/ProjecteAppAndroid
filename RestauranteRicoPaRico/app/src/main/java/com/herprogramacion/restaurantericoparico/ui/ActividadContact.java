@@ -24,12 +24,20 @@ import com.herprogramacion.restaurantericoparico.models.Contacto;
  */
 
 public class ActividadContact extends ActionBarActivity implements OnMapReadyCallback {
-private Button supp;
+    private Button supp;
     private GoogleMap mMap;
+    private Button faq;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_contact);
+        faq=(Button)findViewById(R.id.butonfaq);
+        faq.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent i = new Intent(ActividadContact.this, FAQs.class);
+                startActivity(i);
+            }
+        });
         supp = (Button) findViewById(R.id.supp);
         supp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

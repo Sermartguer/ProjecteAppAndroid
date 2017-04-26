@@ -11,10 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.modelo.Comida;
+import com.herprogramacion.restaurantericoparico.modelo.Comidas;
 import com.herprogramacion.restaurantericoparico.models.Book;
 import com.herprogramacion.restaurantericoparico.net.BookClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -36,32 +40,31 @@ import java.io.IOException;
 public class BookDetailActivity extends AppCompatActivity {
     private ImageView ivBookCover;
     private TextView tvTitle;
-    private TextView tvPublisher;
-    private TextView tvPageCount;
     private BookClient client;
-    private TextView tvRdate;
-    private TextView description;
-    private TextView budget;
-    private TextView revenue;
-    private TextView status;
-    private TextView runtime;
-    private TextView stars2;
+    private TextView RDate;
+    private TextView Budget;
+    private TextView Revenue;
+    private TextView Production;
+    private TextView Stars;
+    private TextView desc;
+    private TextView fav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
         // Fetch views
-        ivBookCover = (ImageView) findViewById(R.id.ivBookCover);
-        tvRdate = (TextView) findViewById(R.id.tvRdate);
-        tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvPageCount = (TextView) findViewById(R.id.tvPageCount);
-        //description = (ImageView) findViewById(R.id.description);
-        budget = (TextView) findViewById(R.id.budget);
-        revenue = (TextView) findViewById(R.id.revenue);
-        status = (TextView) findViewById(R.id.status);
-        runtime = (TextView) findViewById(R.id.runtime);
-        // stars2 = (TextView) findViewById(R.id.stars2);
+        ivBookCover = (ImageView) findViewById(R.id.detail_imag);
+        tvTitle = (TextView) findViewById(R.id.detail_nam);
+        RDate = (TextView) findViewById(R.id.date1);
+        Budget = (TextView) findViewById(R.id.budget1);
+        Revenue = (TextView) findViewById(R.id.revenue1);
+        Production = (TextView) findViewById(R.id.production1);
+        Stars = (TextView) findViewById(R.id.detail_star);
+        desc = (TextView) findViewById(R.id.detail_descriptio);
+        fav = (TextView) findViewById(R.id.actividad_botones);
+
+
         // Use the book to populate the data into our views
         Book book = (Book) getIntent().getSerializableExtra(BookListActivity.BOOK_DETAIL_KEY);
         loadBook(book);
@@ -72,14 +75,10 @@ public class BookDetailActivity extends AppCompatActivity {
         //change activity title
         this.setTitle(book.getTitle());
         // Populate data
-
         Picasso.with(this).load(Uri.parse(book.getImg())).error(R.drawable.ic_nocover).into(ivBookCover);
-        tvRdate.setText(book.getRdate());
         tvTitle.setText(book.getTitle());
-        budget.setText(book.getBudget());
-        revenue.setText(book.getRevenue());
-        status.setText(book.getStatus());
-        runtime.setText(book.getRuntime());
+        Stars.setText(book.getStars()+"/10");
+        RDate.setText(book.getRdate());
 
         // fetch extra book data from books API
         client = new BookClient();
@@ -87,43 +86,31 @@ public class BookDetailActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    Budget.setText(Integer.toString(response.getInt("budget"))+" $");
+                    Revenue.setText(Integer.toString(response.getInt("revenue"))+" $");
+                    desc.setText(response.getString("overview"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 try {
-                    if (response.has("publishers")) {
+                    if (response.has("production_companies")) {
 
                         // display comma separated list of publishers
-                        final JSONArray publisher = response.getJSONArray("publishers");
+                        final JSONArray publisher = response.getJSONArray("production_companies");
                         final int numPublishers = publisher.length();
                         final String[] publishers = new String[numPublishers];
-                        for (int i = 0; i < numPublishers; ++i) {
-                            publishers[i] = publisher.getString(i);
+                        for (int i = 0; i < 3; ++i) {
+
+                            JSONObject pro= publisher.getJSONObject(i);
+                            String name=pro.getString("name");
+                            publishers[i] = name;
                         }
-                        tvPublisher.setText(TextUtils.join(", ", publishers));
+
+                        Production.setText(TextUtils.join(", ", publishers));
                     }
-                    if (response.has("vote_count")) {
-                        tvPageCount.setText(Integer.toString(response.getInt("vote_count")));
-                    }
-                    if (response.has("release_date")) {
-                        tvRdate.setText(Integer.toString(response.getInt("release_date")));
-                    }
-                    if (response.has("budget")) {
-                        budget.setText(Integer.toString(response.getInt("budget")));
-                    }
-                    if (response.has("description")) {
-                        description.setText(Integer.toString(response.getInt("description")));
-                    }
-                    if (response.has("revenue")) {
-                        revenue.setText(Integer.toString(response.getInt("revenue")));
-                    }
-                    if (response.has("status")) {
-                        status.setText(Integer.toString(response.getInt("status")));
-                    }
-                    if (response.has("runtime")) {
-                        runtime.setText(Integer.toString(response.getInt("runtime")));
-                    }
-                    if (response.has("stars2")) {
-                        stars2.setText(Integer.toString(response.getInt("stars2")));
-                    }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -199,5 +186,19 @@ public class BookDetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return bmpUri;
+
+
+    }
+    public void addfav(View v){
+        Book book = (Book) getIntent().getSerializableExtra(BookListActivity.BOOK_DETAIL_KEY);
+        Toast.makeText(this, "Se ha añadido con exito", Toast.LENGTH_SHORT).show();
+        //int num=Functions.findPeli(book);
+        //if(num!=-1) {
+        Comidas.MoviesFav.add(new Comida(book.getOpenLibraryId(), book.getStars(), book.getTitle(), book.getImg(), book.getAuthor(), 3f, 1, 778, "03/24/2017", book.getImg()));
+        //}else{
+        //    Toast.makeText(this, "Ya esta en favoritos", Toast.LENGTH_SHORT).show();
+        //}
+
+
     }
 }

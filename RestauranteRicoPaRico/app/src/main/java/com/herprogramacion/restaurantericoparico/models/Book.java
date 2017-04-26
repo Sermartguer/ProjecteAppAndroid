@@ -24,6 +24,8 @@ public class Book implements Serializable {
     private String revenue;
     private String status;
     private String runtime;
+    private String author;
+
     public String getOpenLibraryId() {
         return openLibraryId;
     }
@@ -45,6 +47,9 @@ public class Book implements Serializable {
     public String getStatus() {return status;}
     public String getRuntime() {return runtime;}
     public String getImg(){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+img;}
+    public String getAuthor() {
+        return author;
+    }
     // Get medium sized book cover from covers API
 
 

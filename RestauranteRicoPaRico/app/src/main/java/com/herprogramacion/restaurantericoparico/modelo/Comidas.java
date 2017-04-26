@@ -24,6 +24,9 @@ public class Comidas {
         return PLATILLOS;
     }
 
+    public static List<Comida> getMoviesFav() {return  MoviesFav;}
+    public static List<Comida> getSeriesFav() {return  SeriesFav;}
+
     public static List<Comida> getMovies() {return  Movies;}
     public static List<Comida> getMorePopular() {return  MorePopular;}
     public static List<Comida> getNowPlaying() {return NowPlaying;}
@@ -40,6 +43,8 @@ public class Comidas {
     public static final List<Comida> PLATILLOS = new ArrayList<>();
     public static final List<Comida> uno = new ArrayList<>();
 
+    public static final List<Comida> SeriesFav = new ArrayList<>();
+    public static final List<Comida> MoviesFav = new ArrayList<>();
     public static final List<Comida> Movies = new ArrayList<>();
     public static final List<Comida> MorePopular= new ArrayList<>();
     public static final List<Comida> NowPlaying=new ArrayList<>();
