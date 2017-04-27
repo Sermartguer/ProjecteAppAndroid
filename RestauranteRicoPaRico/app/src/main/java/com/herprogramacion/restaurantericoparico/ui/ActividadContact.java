@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -59,23 +57,7 @@ public class ActividadContact extends ActionBarActivity implements OnMapReadyCal
             ab.setDisplayHomeAsUpEnabled(true);
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.contacto:
-                Intent i = new Intent(this, Contacto.class);
-                startActivity(i);
-                return true;
-        }
-        return true;
-    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;

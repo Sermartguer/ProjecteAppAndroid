@@ -19,7 +19,7 @@ import com.herprogramacion.restaurantericoparico.net.BookClient;
 public class FragmentoInicio extends Fragment {
     private RecyclerView reciclador;
     private LinearLayoutManager layoutManager;
-    private AdaptadorInicio adaptador;
+    private AdapterHome adaptador;
     private BookAdapter bookAdapter;
     private BookClient client;
     private ProgressBar progress;
@@ -36,7 +36,7 @@ public class FragmentoInicio extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         reciclador.setLayoutManager(layoutManager);
 
-        adaptador = new AdaptadorInicio(getContext());
+        adaptador = new AdapterHome(getContext());
         reciclador.setAdapter(adaptador);
         return view;
     }

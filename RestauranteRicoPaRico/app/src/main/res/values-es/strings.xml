@@ -68,4 +68,13 @@
     <string name="apellido_key">apellidoKey</string>
     <string name="email_key">emailKey</string>
     <string name="cargo_key">cargoKey</string>
+
+    <string name="wifire">1.Que es FireMovie?</string>
+    <string name="wifire2">FireMovie es una App en la que puedesencontrar tus Peliculas y Series favoritas, podras buscar tanto Peliculas como Series y podras guardarlas en tu zona de Favoritos</string>
+    <string name="pay">2.FireMovie es de Pago?</string>
+    <string name="pay1">No, FireMovie no es de pago</string>
+    <string name="ep">3.Como puedo eliminar la publicidad?</string>
+    <string name="ep1">Por ahora, FireMovie no cuenta con un servicio de publicidad, por lo que cualquier usuario puede disfrutar de los servicios sin ninguna publicidad</string>
+    <string name="err">4.La aplicacion no funciona correctamente, que hago?</string>
+    <string name="ee1">Ponte en contacto on nosotros, puedes ir a Ayuda y FAQs > Contacto con el soporte, ahi nos formulas el error que tienes o puedes escribir un correo a firemovieapp@gmail.com</string>
 </resources>

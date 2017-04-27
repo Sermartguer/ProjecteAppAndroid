@@ -33,6 +33,7 @@ public class Comidas {
     public static List<Comida> getTopRatedS() {return TopRatedS;}
     public static List<Comida> getMorePopSer() {return MorePopSer;}
     public static List<Comida> getOnAir(){return OnAir;}
+    public static List<Comida> getUpcoming(){return Upcoming;}
 
     public static List<Comida> getuno() {
         return uno;
@@ -47,6 +48,7 @@ public class Comidas {
     public static final List<Comida> MoviesFav = new ArrayList<>();
     public static final List<Comida> Movies = new ArrayList<>();
     public static final List<Comida> MorePopular= new ArrayList<>();
+    public static final List<Comida> Upcoming= new ArrayList<>();
     public static final List<Comida> NowPlaying=new ArrayList<>();
     public static final List<Comida> TopRatedS=new ArrayList<>();
     public static final List<Comida> MorePopSer=new ArrayList<>();

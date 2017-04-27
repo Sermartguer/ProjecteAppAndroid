@@ -27,6 +27,7 @@ import com.herprogramacion.restaurantericoparico.ui.init.MorePopSer;
 import com.herprogramacion.restaurantericoparico.ui.init.NowPlaying;
 import com.herprogramacion.restaurantericoparico.ui.init.OnAir;
 import com.herprogramacion.restaurantericoparico.ui.init.TopRatedS;
+import com.herprogramacion.restaurantericoparico.ui.init.Upcoming;
 import com.herprogramacion.restaurantericoparico.ui.init.test;
 
 import java.util.Locale;
@@ -50,11 +51,13 @@ public class ActividadPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
-
+        Comidas.Upcoming.clear();
+        startActivity(new Intent(this, Upcoming.class));
         agregarToolbar();
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         Comidas.MorePopSer.clear();
         Comidas.Movies.clear();
         Comidas.MorePopular.clear();
@@ -67,6 +70,7 @@ public class ActividadPrincipal extends AppCompatActivity {
             finish();
         }
         startActivity(new Intent(this, test.class));
+
         startActivity(new Intent(this, MorePopMovie.class));
         startActivity(new Intent(this, NowPlaying.class));
         startActivity(new Intent(this, TopRatedS.class));
@@ -78,6 +82,7 @@ public class ActividadPrincipal extends AppCompatActivity {
             // Seleccionar item por defecto
             seleccionarItem(navigationView.getMenu().getItem(0));
         }
+
     }
     @Override
     public void onBackPressed() {

@@ -6,4 +6,156 @@
     android:layout_height="match_parent"
     tools:context="com.herprogramacion.restaurantericoparico.ui.FAQs">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="368dp"
+        android:layout_height="551dp"
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/header1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColor"
+                android:gravity="center_vertical"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:padding="20dp"
+                android:text="@string/wifire"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/section1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:padding="20dp"
+                    android:text="@string/wifire2"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="22sp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/header2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColor"
+                android:gravity="center_vertical"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:padding="20dp"
+                android:text="@string/pay"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/section2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:padding="20dp"
+                    android:text="@string/pay1"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="22sp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/header3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColor"
+                android:gravity="center_vertical"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:padding="20dp"
+                android:text="@string/ep"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/section3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:padding="20dp"
+                    android:text="@string/ep1"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="22sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/header4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColor"
+                android:gravity="center_vertical"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:padding="20dp"
+                android:text="@string/err"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/section4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:padding="20dp"
+                    android:text="@string/ee1"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="22sp"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

@@ -68,4 +68,14 @@
     <string name="apellido_key">apellidoKey</string>
     <string name="email_key">emailKey</string>
     <string name="cargo_key">cargoKey</string>
+
+
+    <string name="wifire">1.What is FireMovie?</string>
+    <string name="wifire2">FireMovie is an App where you \ncan  find your favorite Movies and Series, you can search for both Movies and Series and you can \nsave them in your Favorites area</string>
+    <string name="pay">2.FireMovie Is It Paid?</string>
+    <string name="pay1">No, FireMovie you do not need to pay to use the App</string>
+    <string name="ep">3.How can I delete advertising?</string>
+    <string name="ep1">Now, FireMovie does not have an advertising service, so any user can enjoy the services without any publicity</string>
+    <string name="err">4.The application does not work correctly, what do I do?</string>
+    <string name="ee1">Get in touch on us, you can go to Help and FAQs > Contact support, there we formulated the error you have or you can write an email to firemovieapp@gmail.com</string>
 </resources>

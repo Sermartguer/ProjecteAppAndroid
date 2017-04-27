@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".ui.ActividadContact"
-            android:label="Contact"
+            android:label="Contacto"
             android:parentActivityName=".ui.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -87,6 +87,7 @@
         </activity>
         <activity android:name=".ui.init.Peliculas" />
         <activity android:name=".ui.FAQs"></activity>
+        <activity android:name=".ui.init.Upcoming" />
     </application>
 
 </manifest>

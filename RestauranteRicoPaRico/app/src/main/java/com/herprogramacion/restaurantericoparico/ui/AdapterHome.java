@@ -18,30 +18,32 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 /**
- * Adaptador para mostrar las comidas más pedidas en la sección "Inicio"
+ * Created by Sergio on 27/04/2017.
  */
-public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHolder> implements ItemClickListener {
-    private final Context context ;
+
+public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> implements ItemClickListener {
+    private final Context context;
     private final List<Comida> items = Comidas.Upcoming;
 
-    public AdaptadorInicio(Context context) {
-     this.context = context;
+    public AdapterHome(Context context) {
+        this.context = context;
     }
 
     public int getItemCount() {
         return items.size();
     }
 
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public AdapterHome.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_lista_inicio, viewGroup, false);
-        return new ViewHolder(v,this);
+                .inflate(R.layout.item_home, viewGroup, false);
+        return new AdapterHome.ViewHolder(v, this);
     }
+
     @Override
     public void onItemClick(View view, int position) {
         View sharedImage = view.findViewById(R.id.image);
 
-        DetailActivity.launch((Activity) context, position, sharedImage ,items,0);
+        DetailActivity.launch((Activity) context, position, sharedImage, items, 1);
     }
 
     public Context getContext() {
@@ -53,7 +55,6 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
         public TextView nombre;
         public TextView precio;
         public ImageView imagen;
-        public TextView voteCount;
         public TextView date;
         public ItemClickListener listener;
 
@@ -62,7 +63,6 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
             nombre = (TextView) v.findViewById(R.id.nombre_comida);
             precio = (TextView) v.findViewById(R.id.precio_comida);
             imagen = (ImageView) v.findViewById(R.id.miniatura_comida);
-            voteCount= (TextView) v.findViewById(R.id.voteCount);
             date = (TextView) v.findViewById(R.id.date);
             v.setOnClickListener(this);
             this.listener = listener;
@@ -77,15 +77,13 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
 
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(AdapterHome.ViewHolder viewHolder, int i) {
         Comida item = Comidas.Upcoming.get(i);
 
-        Picasso.with(getContext()).load(Uri.parse("https://image.tmdb.org/t/p/w185_and_h278_bestv2"+item.getIdDrawable())).error(R.drawable.ic_nocover).into(viewHolder.imagen);
+        Picasso.with(getContext()).load(Uri.parse("https://image.tmdb.org/t/p/w185_and_h278_bestv2" + item.getIdDrawable())).error(R.drawable.ic_nocover).into(viewHolder.imagen);
         viewHolder.nombre.setText(item.getNombre());
-        viewHolder.voteCount.setText(item.getVoteCount()+"");
-        viewHolder.date.setText(item.getDate()+"");
-        viewHolder.precio.setText(item.getRating()+"/10");
+        viewHolder.date.setText(item.getDate() + "");
+        viewHolder.precio.setText(item.getRating() + "/10");
     }
-
 
 }
