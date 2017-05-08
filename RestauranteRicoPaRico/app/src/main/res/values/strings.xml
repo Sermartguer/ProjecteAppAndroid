@@ -78,4 +78,17 @@
     <string name="ep1">Now, FireMovie does not have an advertising service, so any user can enjoy the services without any publicity</string>
     <string name="err">4.The application does not work correctly, what do I do?</string>
     <string name="ee1">Get in touch on us, you can go to Help and FAQs > Contact support, there we formulated the error you have or you can write an email to firemovieapp@gmail.com</string>
+    <string name="next">Next events</string>
+    <string name="hello">Hello World, TareasSQLiteActivity!</string>
+    <string name="menu_insert">Agregar tarea</string>
+    <string name="menu_delete">Borrar</string>
+    <string name="todo_summary">Nombre</string>
+    <string name="todo_description">Borrar</string>
+    <string name="todo_edit_summary">Nombre</string>
+    <string name="todo_edit_description">Descripción</string>
+    <string name="todo_edit_confirm">Aceptar</string>
+    <string name="no_todos">Aún no existen elementos en la lista.</string>
+    <color name="listcolor">#94A65D</color>
+    <color name="black">#000000</color>
+
 </resources>

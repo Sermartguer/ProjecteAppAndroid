@@ -44,4 +44,16 @@ public class BookClient  {
         String url = getApiUrl("movie/");
         client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
     }
+    public void getExtraBookDetails1(String openLibraryId, JsonHttpResponseHandler handler) {
+        String url = getApiUrl("tv/");
+        client.get(url + openLibraryId + "?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US", handler);
+    }
+    public void getBooks3(final String query, JsonHttpResponseHandler handler) {
+        try {
+            String url = getApiUrl("search/tv?api_key=2c5b24e9895c627d2e1a2cdaf1c2dbe5&language=en-US&"+"query=");
+            client.get(url + URLEncoder.encode(query, "utf-8"), handler);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.ForumActivity"
+    tools:context=".ui.activities.ForumActivity"
     android:background="@color/color_fondo">
 
     <ImageView

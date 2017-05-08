@@ -9,9 +9,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
-import com.herprogramacion.restaurantericoparico.modelo.Comida;
-import com.herprogramacion.restaurantericoparico.modelo.Comidas;
-import com.herprogramacion.restaurantericoparico.ui.ActividadPrincipal;
+import com.herprogramacion.restaurantericoparico.models.Comida;
+import com.herprogramacion.restaurantericoparico.models.Comidas;
+import com.herprogramacion.restaurantericoparico.ui.activities.ActividadPrincipal;
 
 import org.json.JSONArray;
 import org.json.JSONException;

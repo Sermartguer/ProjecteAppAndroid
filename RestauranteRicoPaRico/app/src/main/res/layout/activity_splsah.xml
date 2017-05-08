@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.SplashScreen"
+    tools:context=".ui.activities.SplashScreen"
     android:background="#1281ff"
     android:orientation="vertical"
 

@@ -471,7 +471,7 @@
     <!-- FAB -->
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/menu_fab"
-        android:layout_width="wrap_content"
+        android:layout_width="119dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
@@ -488,10 +488,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="?attr/colorAccent"
+            android:onClick="addfav1"
+            android:src="@drawable/star_fav"
+            fab:fab_size="mini"
+            fab:fab_title="Añadir a la cesta"
+            fab:fab_labelsPosition="left"/>
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favorite1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            android:onClick="addfav2"
+            android:src="@drawable/ic_basket"
+            fab:fab_size="mini"
+            fab:fab_title="Añadir a la cesta"
+            fab:fab_labelsPosition="right"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favorite2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            android:onClick="addfav3"
             android:src="@drawable/ar"
             fab:fab_size="mini"
             fab:fab_title="Añadir a la cesta" />
-
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 

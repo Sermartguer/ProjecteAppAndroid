@@ -12,7 +12,7 @@
         android:background="#0c58af"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Próximos estrenos"
+        android:text="@string/next"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/color_light" />
 

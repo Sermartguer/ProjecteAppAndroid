@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
-import com.herprogramacion.restaurantericoparico.modelo.Comida;
-import com.herprogramacion.restaurantericoparico.modelo.Comidas;
+import com.herprogramacion.restaurantericoparico.models.Comida;
+import com.herprogramacion.restaurantericoparico.models.Comidas;
 import com.herprogramacion.restaurantericoparico.models.Book;
 import com.herprogramacion.restaurantericoparico.net.BookClient;
 import com.loopj.android.http.JsonHttpResponseHandler;

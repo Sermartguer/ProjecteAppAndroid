@@ -12,6 +12,10 @@
             android:icon="@drawable/busqueda"
             android:title="@string/item_search" />
         <item
+            android:id="@+id/item_search1"
+            android:icon="@drawable/busqueda"
+            android:title="SearchTV" />
+        <item
             android:id="@+id/item_cuenta"
             android:icon="@drawable/movie_ico"
             android:title="@string/movies" />
@@ -24,6 +28,16 @@
             android:icon="@drawable/star_fav"
             android:title="Favorite" />
 
+        <item
+            android:id="@+id/item_visto"
+            android:icon="@drawable/ic_basket"
+            android:title="Visto" />
+
+        <item
+            android:id="@+id/item_pendiente"
+            android:icon="@drawable/ar"
+            android:title="Pendiente" />
+
         <item android:title="@string/forum">
             <menu>
         <item
@@ -34,16 +48,16 @@
         </item>
         <item android:title="@string/menu_configuration">
             <menu>
-
+                <item
+                    android:id="@+id/item_sql"
+                    android:icon="@drawable/star_fav"
+                    android:title="SQL(No funciona)" />
         <item
             android:id="@+id/item_contact"
             android:icon="@drawable/help_l"
             android:title="@string/item_contact" />
 
-        <item
-            android:id="@+id/item_configuracion"
-            android:icon="@drawable/configuracion"
-            android:title="@string/item_configuracion" />
+
             </menu>
         </item>
         <item android:title="@string/menu_lang">

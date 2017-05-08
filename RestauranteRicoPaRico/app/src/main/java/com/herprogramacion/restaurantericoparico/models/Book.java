@@ -25,12 +25,19 @@ public class Book implements Serializable {
     private String status;
     private String runtime;
     private String author;
+    private String name;
+    private String frdate;
+    private String episodes;
+    private String seasons;
 
     public String getOpenLibraryId() {
         return openLibraryId;
     }
     public String getStars() {
         return stars;
+    }
+    public String getname() {
+        return name;
     }
     public String getStars2() {
         return stars2;
@@ -49,6 +56,15 @@ public class Book implements Serializable {
     public String getImg(){return "https://image.tmdb.org/t/p/w185_and_h278_bestv2"+img;}
     public String getAuthor() {
         return author;
+    }
+    public String getFRdate() {
+        return frdate;
+    }
+    public String getSeasons() {
+        return seasons;
+    }
+    public String getEpisodes() {
+        return episodes;
     }
     // Get medium sized book cover from covers API
 
@@ -70,6 +86,7 @@ public class Book implements Serializable {
             }
             book.title = jsonObject.has("original_title") ? jsonObject.getString("original_title"):"";
             book.img=jsonObject.has("poster_path")? jsonObject.getString("poster_path"):"";
+            book.name = jsonObject.has("original_name") ? jsonObject.getString("original_name"):"";
             book.stars=jsonObject.has("vote_average") ? jsonObject.getString("vote_average"):"";
             book.stars2=jsonObject.has("popularity") ? jsonObject.getString("popularity"):"";
             book.rdate=jsonObject.has("release_date") ? jsonObject.getString("release_date"):"";
@@ -79,6 +96,9 @@ public class Book implements Serializable {
             book.revenue=jsonObject.has("revenue") ? jsonObject.getString("revenue"):"";
             book.runtime=jsonObject.has("runtime") ? jsonObject.getString("runtime"):"";
             book.status=jsonObject.has("status") ? jsonObject.getString("status"):"";
+            book.frdate=jsonObject.has("first_air_date") ? jsonObject.getString("first_air_date"):"";
+            book.episodes=jsonObject.has("number_of_episodes") ? jsonObject.getString("number_of_episodes"):"";
+            book.seasons=jsonObject.has("number_of_seasons") ? jsonObject.getString("number_of_seasons"):"";
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
